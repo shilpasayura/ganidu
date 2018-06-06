@@ -1,0 +1,3025 @@
+<!DOCTYPE HTML>
+<html> 
+<head> 
+<title>Code4AL:Java</title>
+<meta name="keywords" content="Photography Infographics, Shilpa Sayura" /> 
+<meta name="description" content="Photography Infographics" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" > 
+<script src="rainbow.min.js"></script>
+<script src="language/generic.js"></script>
+<script src="language/python.js"></script>
+<link id="codeCSS" href="themes/code4al.css" media="all" rel="stylesheet" />
+<link rel="stylesheet" href="css/font-awesome.css">
+<script src="js/skulpt.min.js" type="text/javascript"></script> 
+<script src="js/skulpt-stdlib.js" type="text/javascript"></script> 
+
+<script type="text/javascript"> 
+// output functions are configurable.  This one just appends some text
+// to a pre element.
+
+var cssList=["code4al.css",  "tricolore.css", "blackboard.css","kimbie-dark.css","monokai.css"];
+var actcssno=0;
+var actcssfile=cssList[0];
+
+function changeStyleSheet(cssfile){
+	   url="themes/" + cssfile;
+       var stylesheet = document.getElementById("codeCSS");
+	   x=cssfile.split(".")
+       stylesheet.setAttribute('href', url);
+    }
+	
+function changecss(){
+	
+	if (actcssno < cssList.length-1){
+		actcssno++
+	}
+	else{
+		actcssno=0
+	}
+	console.log(cssList[actcssno])
+	changeStyleSheet(cssList[actcssno])
+	
+}
+
+function loadcss(cssfile){
+	newstyle = document.createElement("link"); // Create a new link Tag
+	// Set some attributes:
+	x=cssfile.split(".")
+	newstyle.setAttribute("rel", "stylesheet");
+	newstyle.setAttribute("id",  x[0]);
+	newstyle.setAttribute("type", "text/css");
+	newstyle.setAttribute("href", cssfile); // Your .css File
+	document.getElementsByTagName("head")[0].appendChild(newstyle);
+}
+
+function outf(text) { 
+    var mypre = document.getElementById("output"); 
+    mypre.innerHTML = mypre.innerHTML + text; 
+} 
+function builtinRead(x) {
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+            throw "File not found: '" + x + "'";
+    return Sk.builtinFiles["files"][x];
+}
+
+function clearit() { 
+document.getElementById("yourcode").value='';
+}
+// Here's everything you need to run a python program in skulpt
+// grab the code from your textarea
+// get a reference to your pre element for output
+// configure the output function
+// call Sk.importMainWithBody()
+
+function runit() { 
+   debugger;
+   var prog = document.getElementById("yourcode").value; 
+   var mypre = document.getElementById("output"); 
+   mypre.innerHTML = ''; 
+   Sk.pre = "output";
+   Sk.configure({output:outf, read:builtinRead}); 
+   (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+   var myPromise = Sk.misceval.asyncToPromise(function() {
+       return Sk.importMainWithBody("<stdin>", false, prog, true);
+   });
+   myPromise.then(function(mod) {
+       console.log('success');
+   },
+       function(err) {
+       console.log(err.toString());
+   });
+} 
+</script> 
+
+<script>
+function init(){
+Rainbow.color();
+}
+window.addEventListener("resize", resize);
+
+function resize(){
+//location.href="index.html";
+}
+
+</script>
+
+<style>
+@font-face {
+    font-family: KaputaUnicode;
+    src: url('fonts/kaputaunicode.ttf');
+}
+
+
+body{
+font-family:Roboto,KaputaUnicode, sans-serif;background:#093947;color:#fff;
+font-size:16pt;
+}
+
+ol,ul{
+margin:0px;
+}
+
+.h1x{font-size:24pt;}
+.h2x{font-size:18pt;}
+.h4x{font-size:14pt;}
+.h5x{font-size:12p;}
+
+a{color:#ccc}
+a:hover{text-decoration:none}
+a:active{color:#962b00}
+
+.imgx{
+margin:10px;
+}
+.displaynone{
+display:none;
+}
+.xright{
+text-align:right;
+}
+.xleft{
+text-align:left;
+}
+.xcenter{
+text-align:center;
+}
+
+#xpage{
+width:100%;
+border:1px solid #294a7b;
+}
+
+.codewrap{
+margin:.4em;
+background: #272822;
+border:1px solid #ccc;
+border-radius:1em;
+padding:0.3em;
+opacity:0.9;
+}
+
+.menu_butn{
+margin:5px;
+}
+
+.menu_butn a{
+background:black;
+margin-left:10px;
+padding:4px;
+padding-left:10px;
+padding-right:10px;
+border-radius:5px;
+text-decoration:none;
+opacity:0.7;
+color:orange;
+font-weight:strong;
+font-size:1.2em;
+}
+
+.link_butn a{
+background:#000;
+margin:10px;
+margin-left:0.5em;
+padding-left:40px;
+padding-right:10px;
+border-radius:5px;
+text-decoration:none;
+color:#ccc;
+font-weight:strong;
+font-style:italic;
+font-size:28px;
+background-image:url(images/logo.png);
+background-size: 20px 20px;
+background-position: 4px, 4px; 
+background-repeat:no-repeat;
+}
+
+.menu{
+padding-left:0px;
+margin:0.2em;
+margin-top:0em;
+list-style: none;
+}
+
+.menu li{
+color:tblue;
+margin:0.1em;
+border-bottom:1px solid #5c5d5d;
+background-image:url(images/logo.png);
+background-size: 30px 30px;
+background-position: 5px, 5px; 
+background-repeat:no-repeat;
+}
+.menu > li a{
+text-decoration:none;
+margin:10px;
+margin-left:50px;
+text-align:left;
+}
+
+/*.menu li:last-child { border-bottom:0px; }*/
+
+.menu1{
+font-size:36px;
+}
+.menu2{
+font-size:32px;
+}
+.topfix{
+margin-top:20px;
+}
+#main_menu, #python_intro1, #python_intro2{
+display:none;
+}
+
+#code_variables{
+display:none;
+}
+
+
+.notelist{
+margin:0.5em;
+width:90%;
+}
+.notetext{
+margin:0.5em;
+margin-left:0.7em;
+color:#ccc;
+width:90%;
+max-width:560px;
+}
+
+.White{color:#fff}
+.Black{color:#000}
+.Red{color:red;}
+.Orange{color:orange}
+.Yellow{color:yellow}
+.Blue{color:#14a9d6}
+.Green{color:#65c359}
+.Purple{color:purple}
+.Pink{color:pink}
+.Magenta{color:magenta}
+.Brown{color:#e7b681}
+.Gray{color:gray}
+.Pink{color:#ff9e99}
+.Silver{color:#ccc}
+.laBlue{color:CornflowerBlue}
+.Gold{color:Gold}
+.unBlue{color:DeepSkyBlue}
+
+
+#xheader{
+background:#0b2230;
+background-image:url(images/logo.png);
+background-position:10px 10px;
+background-size: 40px 40px;
+background-repeat:no-repeat;
+margin:0.0em;
+text-shadow: 2px 2px #000;
+box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+padding:0.2em;
+padding-left:60px;
+}
+
+#topmenu{
+float:right;
+padding-right:60px;
+}
+
+.toptitle{
+margin:10px;
+margin-left:20px;
+font-size:24pt;
+color:#66D9EF;
+}
+
+#xfooter{
+margin-top:1em;
+background:#0b2230;
+color: #ccc;
+padding:0.1em;
+padding-left:60px;
+margin-left:0.0em;
+}
+
+#homeimg{
+width:100%;
+height:250px;
+background-image:url(images/home.png);
+background-repeat:no-repeat;
+}
+
+.rountBtn{
+border-radius:1em;
+width:1em;
+height:1em;
+color:white;
+border: none ! important;
+box-shadow: none ! important;
+outline: none ! important;
+background:#333333;
+font-size:0.9em;
+margin-left:0.4em;
+}
+
+#ux{
+}
+
+</style>
+
+<style>
+
+#output, #yourcode, #editor{
+background:#000;
+color:#fff;
+font-size:18pt;
+width:100%;
+max-width:550px;
+padding:20px;
+}
+#output{
+margin:0;
+background:#2c2a2a;
+}
+#editor{
+margin:0;
+}
+
+#python_editor{
+display:none;
+width:100%;
+}
+
+.editor_butn a{
+text-decoration:none;
+background:#2c2a2a;
+color:#fff;
+display:inline;
+font-size:.8em;
+margin-left:20px;
+padding-left:0.2em;
+padding-right:0.2em;
+margin-top:0.2em;
+
+opacity:0.8;
+
+}
+</style>
+<script>
+function showhide(xdiv){
+	if (document.getElementById(xdiv).style.visibility=="visible"){
+		document.getElementById(xdiv).style.visibility="";
+	}else {
+		document.getElementById(xdiv).style.visibility="visible";
+	}
+}
+
+function displaydiv(xparent,xchild){
+	var x=document.getElementById(xchild).innerHTML;
+	document.getElementById(xparent).innerHTML=x;
+	activechild=xchild;
+}
+
+function openvideo(xparent, v){
+strVar = "<iframe width=\"480\" height=\"360\" src=\"https:\/\/www.youtube.com\/embed\/" + v + "?rel=0\" frameborder=\"0\" allowfullscreen><\/iframe>";
+document.getElementById(xparent).innerHTML=strVar;
+}
+
+function init(){
+displaydiv('ux','main_menu');
+}
+
+function showHide(id) {
+    var el = document.getElementById(id);
+    if( el && el.style.display == 'block')  { 
+        el.style.display = 'none';
+    }
+	else {
+        el.style.display = 'block';
+	}
+}
+
+
+function home(){
+displaydiv('ux','main_menu');
+}
+
+</script>
+</head> 
+<body onload="init()"> 
+<div id="xpage">
+
+<div id="xheader" class="h1x Orange">
+<span>Python ගුරු</span> 
+<span id="topmenu">
+<button class="rountBtn fa fa-th-list" onclick="showHide('python_editor')" ></button>
+<button class="rountBtn fa fa-star" onclick="changecss()" ></button>
+<button class="rountBtn fa fa-home " onclick="home()"></button>
+</span>
+</div>
+
+<div id="python_editor">
+<form> 
+<div class="editor_butn" ><a href="#" onclick="runit()">Run</a>&nbsp; <a href="#" onclick="clearit()">Clear</a></div> 
+
+<textarea id="yourcode" cols="50" rows="8" class="editor" data-language="python">
+print ("Hello Python")
+</textarea>
+<pre id="output" ></pre>
+</form> 
+ 
+<div id="mycanvas"></div> 
+</div>
+
+<div id="ux"></div>
+<div id="xfooter" class="h1x" onclick="home();"><small>Shilpa Sayura Foundation</small></div>
+</div>
+<!----components--->
+
+<script>
+//dont move needed for generic rendering
+function crtNavigation(pdiv,mdiv, ndiv){
+var strVar = "<a href=\"#\" onclick=\"displaydiv('ux','" + pdiv + "')\"><<\/a>";
+strVar += " <a href=\"#\" onclick=\"displaydiv('ux','" + mdiv + "')\">§<\/a>";
+strVar += " <a href=\"#\" onclick=\"displaydiv('ux','" + ndiv + "')\">><\/a>";
+document.write(strVar);
+}
+
+function crtReturn(pdiv){
+
+var strVar = "<a href=\"#\" onclick=\"displaydiv('ux','" + pdiv + "')\"><<\/a>";
+document.write(strVar);
+}
+
+
+</script>
+
+<div id="main_menu">
+<div id="homeimg"></div>
+<div id="main_menux" class="menu">
+<ul class="menu menu1">
+<li><a href="#" onclick="displaydiv('ux','programing_concepts')">Programming</a></li>
+<li><a href="#" onclick="displaydiv('ux','python_intro')">Learn Python</a></li>
+<li><a href="#" onclick="displaydiv('ux','code_variables')">Example Programs</a></li>
+<li><a href="#" onclick="displaydiv('ux','code_variables')">Coding Challenge</a></li>
+<li><a href="#" onclick="displaydiv('ux','code_variables')">Exam Questions</a></li>
+<li><a href="#" onclick="displaydiv('ux','code_variables')">About</a></li>
+</ul>
+</div>
+</div>
+
+<div id ="code_variables" >
+<div class="menu_butn"><a href="#" onclick="displaydiv('ux','main_menu')">A</a></div>
+<div id ="code_variables1" class="codewrap">
+<pre>
+<code data-language="javascript">
+var development=0;
+var origin,destination,travelMode;
+var appdata="_user_appdata";
+
+//peaks data load
+var Geoposition = function(latitude, longitude) {
+        this.latitude = latitude;
+        this.longitude  = longitude;
+}
+</code>
+</pre>
+</div>
+
+
+
+<div id ="python_intro" >
+<div class="menu_butn xright">
+<script>
+crtNavigation("main_menu","main_menu","python_intro1");
+</script>
+</div>
+
+
+<div id ="python_menu" class="notewrap">
+<ul class="menu menu2">
+<li><a onclick="displaydiv('ux','python_intro1')" href="#"><span class="White">About Python</span></a></li>
+<li><a onclick="displaydiv('ux','python_install')" href="#"><span class="White">Install Python</span></a></li>
+<li><a onclick="displaydiv('ux','input_output')" href="#"><span class="Pink">Input & Output</span></a></li>
+<li><a onclick="displaydiv('ux','vars_datatypes')" href="#"><span class="Green">Variables and Types</span></a></li>
+<li><a onclick="displaydiv('ux','python_operators')" href="#"><span class="Blue">Operators</span></a></li>
+<li><a onclick="displaydiv('ux','python_conditions')" href="#"><span class="Red">Conditionals</span></a></li>
+<li><a onclick="displaydiv('ux','python_loops')" href="#"><span class="Orange">Loops</span></a></li>
+<li><a onclick="displaydiv('ux','python_functions')" href="#"><span class="laBlue">Functions</span></a></li>
+<li><a onclick="displaydiv('ux','string_operations')" href="#"><span class="Pink">String Operations</span></a></li>
+<li><a onclick="displaydiv('ux','python_lists')" href="#"><span class="Gold">Lists</span></a></li>
+<li><a onclick="displaydiv('ux','python_dictionaries')" href="#"><span class="unBlue">Dictionaries</span></a></li>
+<li><a onclick="displaydiv('ux','python_files')" href="#"><span class="unBlue">Files I/O</span></a></li>
+<li><a onclick="displaydiv('ux','mod_pkgs')" href="#">Modules and Packages</a></li>
+<li><a onclick="displaydiv('ux','class_objects')" href="#">Classes and Objects</a></li>
+</ul>
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("main_menu","main_menu","python_intro1");
+</script>
+</div>
+</div>
+
+
+
+<div id ="python_intro1">
+<div class="Silver toptitle">Python is</div> 
+<ul class="notelist">
+<li class="White">general-purpose</li>
+<li class="Pink">interactive</li>
+<li class="Yellow">object-oriented</li>
+<li class="White">high-level</li>
+<li class="Blue">Open Source (GNU GPL)</li>
+<li class="Brown">interpretor</li>
+<li class="White">programming language</li>
+<li class="Pink">created by <span class="Silver">Guido van Rossum</span></li>
+<li class="laBlue">www.python.org</li>
+</ul>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu","main_menu","python_intro2");
+</script>
+</div>
+</div>
+
+<div id ="python_intro2">
+<div class="imgx"><img src="imgx/interpreter.png"></div>
+<div class="notetext">
+Python code is not compiled. It is run by the <span class="Orange">interpreter</span> line by line. 
+Users can <span class="Red">interact</span> with the Python interpreter to write and run programs.
+Python supports <span class="Blue">Object-Oriented programming</span> and encapsulating (<span class="Green">code inside object</span>). Python used to develop <span class="Orange">data processing systems, information security, web applications to games</span>.
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_intro1","main_menu","python_intro3");
+</script>
+</div>
+</div>
+
+<div id ="python_intro3" class="displaynone">
+<div class="notetext">
+Python IDLE has an interactive shell that you can enter commands directly. <br/>
+Python has flexible <span class="Blue">arrays and dictionaries</span>. Python is applicable to a much 
+<span class="Green">larger problem domain</span>. Python split program into <span class="Pink">modules</span> to re use in other Python programs. It has  a large collection of standard modules for  <span class="Orange">file I/O, system calls, sockets, and GUI</span> support with Tcl/Tk. Python code is shorter than C, C++, or Java: <span class="Orange">No variable/argument declaration</span> needed.
+</div>
+<div class="menu_butn">Website : <a href="#"  onclick="location.href='http:www.python.org';">www.python.org</a></div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_intro2","main_menu","python_menu");
+</script>
+</div>
+</div>
+
+<div id ="python_install" class="displaynone">
+<div class="Silver toptitle">Installing Python</div>
+<div class="notetext">
+Python is available for Windows, Linux, Unix and Mac platforms<br/>
+Download Python <span class="laBlue">www.python.org</span><br/>
+<span class="Pink">Python 3.x and 2.x are different.</span>
+</div>
+<div class="link_butn"><a href="#" onclick="location.href='https://play.google.com/store/apps/details?id=com.hipipal.qpyplus'"><span class="Green">QPython at Google Play</span></a></div>
+<br/>
+<div id="pyinst_v" class="link_butn xcenter"><a href="#" onclick="openvideo('pyinst_v', '4Mf0h3HphEA')"><span class="Gold">Watch New Boston Video</span></a></div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu","main_menu","python_menu");
+</script>
+</div>
+</div>
+
+<div id ="input_output" class="displaynone">
+<div class="Silver toptitle">Input & Output</div>
+<div class="notetext">
+<span class="xcode">input</span> funcion read a line of text from keyboard.<br/> 
+<span class="moreinfo">
+You can pass zero or more expressions separated by commas to </span><span class="xcode">print</span><span class="moreinfo"> function. Print function converts the expressions you pass into a string and writes the result to standard output.</span>
+</div>
+<div class="zcode">
+<pre>
+<code data-language="python">
+Data Input
+name = input("Enter Your Name ")
+print ("Your name is : ")
+print (name)
+
+# \n within quote marks forces a new line 
+age = input("Enter Your Age\n")
+print ("Your age is:")
+print (age)
+
+#program to calculate average of 3 numbers
+total = 0.0
+number1=float(input("Enter number 1: "))
+total = total + number1
+number2=float(input("Enter tnumber 2: "))
+total = total + number2
+number3=float(input("Enter number 3: "))
+total = total + number3
+average = total / 3
+print ("Average : " + str(average))
+
+STDIN
+input() read a line  and returns a string.
+You can parse input string as data type
+
+n = int(input())
+
+#space delimitted numbers in line. 
+arr = map(int, input().split())
+
+#to read all the input at a time
+#sys.stdin opens data like a  file
+# import sys module first
+import sys  
+data = sys.stdin.readlines()
+print (data)
+
+</code>
+</pre>
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtReturn("python_menu");
+</script>
+</div>
+</div>
+
+<div id ="vars_datatypes" class="displaynone">
+<div class="Silver toptitle">Variables</div>
+<div class="notetext">
+<ul>
+<li>Program are working with different types of data.</li> 
+<li>They handle data using variables. </li>
+<li>A variable stores a piece of data.</li>
+<li>A variable has a  specific name.</li>
+<li>You can store numbers, text, lists in variables</li>
+<li>Variables store values for later use</li>
+<li>You can pass variables to different functions.</li>
+</div>
+
+<pre>
+<code data-language="python">
+#examples
+name="Ruvini"
+age=18
+height=5.6
+
+Reassigning Variables
+name="Sindi" # name is set to "Sindi"
+age=19   # age is set to 19
+height=5.7   # height is now set 5.7
+
+</code>
+</pre>
+
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu","python_menu","python_variables");
+</script>
+</div>
+</div>
+
+<div id ="python_variables" class="displaynone">
+<div class="Silver toptitle">Booleans</div>
+<div class="notetext">
+
+A boolean variable is like a light switch. <br/>
+It can only have two values True or False.<br/>
+Python stores  true as 1 and false as 0<br/>
+but outputs 'true' or 'false' from print statements<br/>
+If you input Boolean values, you must input 1 or 0.<br/>
+</div>
+<div class="zcode">
+<pre>
+<code data-language="python">
+a = True
+b = False
+
+Boolean expressions return a True or False value
+c=(c < d)
+</code>
+</pre>
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("vars_datatypes","python_menu","variables_names");
+</script>
+</div>
+</div>
+
+<div id ="variables_names" class="displaynone">
+<div class="Silver toptitle">Variables naming rules</div>
+<div class="notetext">
+<ul>
+<li>The first character of must be a letter or ('_')</li> 
+<li>Uppercase, lowercase allowed</li> 
+<li>The rest of the name can consist of letters,  ('_') and numbers</li> 
+<li>Variable names are case-sensitive. myname and MYNAME are not the same.</li> 
+<li> Examples : <br/>
+Valid names : i, _my_name, name__23 , a1b2_c3 and r_r_c23</li> 
+<li>Invalid names : 2things, *name, age+</li> 
+<li>Good variable names are important!</li> 
+<li>Describe the value: numberOfCats, numbcats, ncats, num_cats </li> 
+</div>
+<div class="zcode">
+<pre>
+<code data-language="python">
+# Hard to understand
+ir = 0.12
+b = 12123.34
+i = ir * b
+ 
+# Easy to understand
+interest_rate = 0.12
+account_balance = 12123.34
+interest_amount = interest_rate * account_balance
+
+Variables can hold values of different types called data types.
+</code>
+</pre>
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_booleans","python_menu","data_types");
+</script>
+</div>
+</div>
+
+<div id ="data_types" class="displaynone">
+<div class="Silver toptitle">Python Data Types</div>
+<div class="notetext">
+The data stored in memory can be of many types. <br/>
+Age is stored as a numeric value.<br/>
+Name as a string of characters<br/>
+Address as alphanumeric characters. <br/>
+<br/>
+Python has 5 standard data types 
+<pre>
+<code data-language="python">
+Numbers
+String
+List
+Tuple
+Dictionary
+</code>
+</pre>
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("variables_names","python_menu","number_data_type");
+</script>
+</div>
+</div>
+
+<div id ="number_data_type" class="displaynone">
+<div class="Silver toptitle">Number Data Types</div>
+<div class="notetext">
+<ul>
+<li>Number data types store numeric values. </li>
+<li>Number objects are created when you assign a value to them. </li>
+</ul>
+<pre>
+<code data-language="python">
+var1 = 1
+var2 = 10
+</code>
+</pre>
+<ul>
+<li>int : (signed integers) : 7, -1, -240</li>
+<li>long (long integers, in octal and hexadecimal) : 51924361L </li>
+<li>float (floating point real values) : 3.147</li>
+<li>complex (complex numbers) : 3.14j</li>
+</ul>
+<br/>
+A complex number used  is pair of real floating-point numbers denoted by x + yj<br/>
+where x and y are the real numbers and j is the imaginary unit.
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("data_types","python_menu","python_strings");
+</script>
+</div>
+</div>
+
+
+<div id ="python_strings" class="displaynone">
+<div class="Silver toptitle">Python Strings</div>
+<div class="notetext">
+Strings in Python are character sequences<br/>
+Ex: "Kandy", 'Jaffna';
+Python allows using either single or double quotes. <br/>
+The plus (+) sign is the string concatenation operator<br/>
+The asterisk (*) is the repetition operator. <br/>
+</div>
+<pre>
+<code data-language="python">
+#!/usr/bin/python
+
+str = 'Hello Python!'
+
+print str       # Prints complete string
+print str + "T" # Prints concatenated string
+print str * 2   # Prints string two times
+print str[0]    # Prints first character
+print str[2:5]  # Prints from 3rd to 5th
+print str[2:]   # Prints from 3rd character
+
+#The output will be
+Hello python!
+Hello python!T
+Hello python!Hello python!
+H
+llo
+llo python!
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("number_data_type","python_menu","datatype_conversion");
+</script>
+</div>
+</div>
+
+
+<div id ="datatype_conversion" class="displaynone">
+<div class="Silver toptitle">Data Type Conversion</div>
+<div class="notetext">
+You can convert data between types. <br/>
+For this we use the type name as a function.<br/>
+Type conversion functions return a new object representing the converted value.<br/>
+</div>
+<pre>
+<code data-language="python">
+int(x ) - Converts x to an integer. 
+long(x) Converts x to a long integer. 
+float(x) - Converts x to a floating-point number.
+str(x) - Converts object x to a string.
+
+chr(x) - Converts an integer to a character.
+ord(x)-  Converts a single character to its integer value.
+
+hex(x) -Converts an integer to a hexadecimal string.
+oct(x) - Converts an integer to an octal string.
+unichr(x) - Converts an integer to a Unicode character.
+
+eval(str) - Evaluates a string and returns an object.
+tuple(s) - Converts s to a tuple.
+list(s) - Converts s to a list.
+dict(d) - Creates a dictionary from (key,value) tuples.
+set(s) -Converts s to a set.
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_strings","python_menu","python_arrays");
+</script>
+</div>
+</div>
+<div id ="python_arrays" class="displaynone">
+<div class="Silver toptitle">Python Arrays</div>
+<div class="notetext">
+<ul>
+<li>Python doesn't have a native array data structure.</li>
+<li>The list datatype in python can be used as an array</li>
+<li>A list is an ordered collection of items of any type</li>
+<li>If there are n items in a list</li>
+<li>The first index is 0</li>
+<li>The last index is n-1</li>
+</div>
+<pre>
+<code data-language="python">
+#array example
+myList=[1,2,3,4,5,6]
+print(myList[0], myList[5])
+
+myList[0]=100
+print(myList[0])
+
+myList[1]="Yasas"
+print(myList[1])
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("datatype_conversion","python_menu","datatype_lists");
+</script>
+</div>
+</div>
+
+
+<div id ="datatype_lists" class="displaynone">
+<div class="Silver toptitle">Python Lists</div>
+<div class="notetext">
+<ul>
+<li>Python list contains items separated by commas.</li>
+<li>Items in a list can be of different data type.</li>
+<li>The plus (+) sign is the concatenation operator </li>
+<li>And the asterisk (*) is the repetition operator. </li>
+</div>
+<pre>
+<code data-language="python">
+#!/usr/bin/python
+
+list1 = [1,23, 'Ruwini',7]
+
+print list1      # Prints complete list
+print list1[0]   # Prints first element
+print list1[1:3] # Prints from 2nd till 3rd 
+print list[2:]   # Prints from 3rd element
+
+#what would be the output?
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("datatype_arrays","python_menu","datatype_tuples");
+</script>
+</div>
+</div>
+
+<div id ="datatype_tuples" class="displaynone">
+<div class="Silver toptitle">Python Tuples</div>
+<div class="notetext">
+<ul>
+<span class="Yellow">A tuple is similar to the list.</span>
+The differences between lists and tuples: <br/>
+<span class="Pink">Lists are enclosed in brackets ( [ ] )</span><br/>
+<span class="Pink">List elements and size can be changed</span><br/>
+<span class="unBlue">Tuples are enclosed in parentheses ( )</span>
+<span class="unBlue">Tuples cannot be updated.</span>
+<span class="Yellow">Tuples are like as read-only lists</span>
+</div>
+<pre>
+<code data-language="python">
+
+tuple1 = (123, 'Niki', "Sugi",9)
+
+print tuple1       # Prints complete list
+print tuple1[0]    # Prints first element 
+print tuple1[1:3]  # Prints from 2nd till 3rd 
+print tuple1[2:]   # Printsfrom 3rd element
+
+#What will be the output ?
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("datatype_lists","python_menu","datatype_dictionary");
+</script>
+</div>
+</div>
+
+<div id ="datatype_dictionary"" class="displaynone">
+<div class="Silver toptitle">Python Dictionaries</div>
+<div class="notetext">
+<ul>
+<li>Python's dictionaries are associative arrays </li>
+<li>The elements in the array consist of <span class="Pink">key</span>-<span class="unBlue">value pairs.</span></li> 
+<li><span class="Pink">key</spanA key can be a numbers or strings.</span></li> 
+<li><span class="unBlue">Value can be any Python object.</span></li>
+<li>Dictionaries are enclosed by curly braces { } </li>
+<li>values can be accessed using square braces []</li>
+</ul>
+</div>
+<pre>
+<code data-language="python">
+
+dict1 = {}
+dict1['one'] = "One"
+dict1[2]     = "Two"
+
+print dict1['one']       # Prints value for 'one' key
+print dict1[2]           # Prints value for 2 key
+print dict1          # Prints complete dictionary
+print dict1.keys()   # Prints all the keys
+print dict1.values() # Prints all the values
+
+#The output will be
+One
+Two
+{2: 'Two', 'one': 'One'}
+[2, 'one']
+['Two', 'One']
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_tuples","python_menu","vars_datatypes");
+</script>
+</div>
+</div>
+
+<!--------------Section Operators---------------->
+
+<div id ="python_operators" class="displaynone">
+<div class="Silver toptitle">Python Operators</div>
+<div class="notetext">Operators are used to manipulate the value of operands.
+<ul>
+<li>Arithmetic Operators</li>
+<li>Comparison Operators</li>
+<li>Assignment Operators</li>
+<li>Logical Operators<br/></li>
+</div>
+<pre>
+<code data-language="python">
+#Arithmetic Operators
+a=2+3  	 # Add
+b=9-2    # Subtraction
+c= 108 * 0.5 # multiplication
+c= 6/2   # Division
+eight = 2 ** 3 # Exponentiation
+
+x=10
+y=2
+#How do you get 100 using x,y
+z=x**y # Exponentiation
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu","python_menu","python_operators2");
+</script>
+</div>
+</div>
+
+<div id ="python_operators2" class="displaynone">
+<div class="Silver toptitle">Modulo operator and Floor Davison</div>
+<div class="notetext">.
+</div>
+<pre>
+<code data-language="python">
+# Modulo returns the remainder from a division
+print (1% 3) # yields 1
+print (2% 3) # yields 2
+print (3% 3) # yields 0
+print (4% 3) # yields 1
+
+# Floor Division 
+print (9//2) # yields 4 
+print (-11//3)  #yields -4
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_operators","python_menu","comparision_operators");
+</script>
+</div>
+</div>
+
+
+<div id ="comparision_operators" class="displaynone">
+<div class="Silver toptitle">Comparison Operators</div>
+<div class="notetext">
+These operators used to compare two values 
+</div>
+<pre>
+<code data-language="python">
+> bigger than
+< smaller than
+== equal value
+<= smaller OR equal
+>= bigger OR equal
+!= not equal
+
+# run following code
+
+print (7 > 10) # false
+print (4 < 16) # true
+print (4 == 4) # true
+print (4 <= 4) # true
+print (4 >= 4) # true
+print (4 != 4) #  false
+
+# isPositive true or false?
+number = 10
+isPositive = (number > 0)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_operators","python_menu","assignment_operators");
+</script>
+</div>
+</div>
+
+<div id="assignment_operators" class="displaynone">
+<div class="Silver toptitle">Assignment Operators</div>
+<div class="notetext">
+Assignments : We are associating a name to a value.
+The name is called a variable or identifier.
+</div>
+<pre>
+<code data-language="python">
+c = a + b  # assigns value of a + b into c
+
+c += a  # equivalent to c = c + a
+
+c -= a  # equivalent to c = c - a
+
+c *= a  # equivalent to c = c * a
+#example - check output
+c=1
+c+=3
+print(c) #output 4
+c*=3
+print(c)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("comparision_operators","python_menu","assignment_operators1");
+</script>
+</div>
+</div>
+
+<div id="assignment_operators1" class="displaynone">
+<div class="Silver toptitle">Assignment Operators 2</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+#What will be output ?
+x = 4
+y = x + 1
+x = 2
+print (x, y)
+
+#What will be output ?
+a, b = 2, 3
+print (a, b)
+b, c = a, b + 1
+print (a, b,c)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("assignment_operators","python_menu","logical_operators");
+</script>
+</div>
+</div>
+
+
+<div id="logical_operators" class="displaynone">
+<div class="Silver toptitle">Logical operators</div>
+<div class="notetext">
+There are three logical operators, <span class="Pink">and</span>, <span class="Yellow">or</span>, and <span class="Red">not</span><br/>
+They help us to build more complex Boolean expressions from simpler Boolean expressions. 
+</div>
+<pre>
+<code data-language="python">
+#produces True only if x is greater than 0 and at the same time, x is less than 10.
+x > 0 and x < 10 
+
+#produces True if any of the conditions is True
+# true if the number n is divisible by 2 or it is divisible by 3. 
+n % 2 == 0 or n % 3 ==0
+
+#What if n is divisible by both 2 and by 3 ? 
+
+#not operator negates a Boolean value
+#true if x is less than or equal to y
+not (x > y) is True if (x > y) # is False 
+</code>
+</pre>
+<div>
+Short-circuit evaluation<br/>
+For or operator, the expression on the left is evaluated first: if the result is True, Python does not evaluate the expression on the right <br/><br/>
+For the and operator, if the expression on the left yields False, Python does not evaluate the expression on the right.
+</div>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("assignment_operators1","python_menu","membership_operators");
+</script>
+</div>
+</div>
+
+
+<div id="membership_operators" class="displaynone">
+<div class="Silver toptitle">Membership an Identity Operators</div>
+<div class="notetext">
+Membership operators test for membership in a sequence, such as strings, lists, or tuples. 
+<br/><br/>
+Identity operators compare the memory locations of two objects<br/>
+</div>
+<pre>
+<code data-language="python">
+x=2
+y={1,2,3,4,5}
+Z=x in y # Z is  true if x is a member of y.
+R= x not in y # Z is false if x is not a member of y.
+
+#Identity operators 
+Z=x is y # Z is true  if id(x) equals id(y).
+R= x is not y # , Z is true  if id(x) not equals id(y).
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("logical_operators", "python_menu","operators_precedence");
+</script>
+</div>
+</div>
+
+
+<div id="operators_precedence" class="displaynone">
+<div class="Silver toptitle">Operator precedence</div>
+<div class="notetext">
+Determines the order of operators evaluation. 
+<br/>Operators with higher precedence are evaluated first.<br/> 
+3 + 4 * 5 # returns 23<br/>
+</div>
+<pre>
+<code data-language="python">
+x = 17 / 2 * 3 + 2
+print (x)
+ 
+# / and * share equal precedence 
+# They are higher than the + and - operators.  
+#  division and multiplication done before the addition, 
+# Evaluate x, y, z and p
+
+x = 2 + 17 / 2 * 3
+y = 19 % 4 + 15 / 2  * 3
+z = (15 + 6) - 10 * 4
+p = 17 / 2 % 2 * 3**3
+</code>
+</pre>
+
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("membership_operators", "python_menu","python_operators");
+</script>
+</div>
+</div>
+
+<!------------Section Conditionals --------------->
+
+<div id="python_conditions" class="displaynone">
+<div class="Silver toptitle">Conditions</div>
+<div class="notetext">
+<span class="Yellow">Condition statements are used to make decisions.</span><br/>
+<ul>
+<li>They perform different actions on true or false returned from a conditional statement.</li>
+<li>Conditionals use comparisons and arithmetic expressions.</li>
+<li>if, else and elif branch program actions.</li>
+</ul>
+</div>
+<pre>
+<code data-language="python">
+if it is raining , I need an umbrella
+
+if it is a holiday, I can sleep more , else I have to get up early.
+
+if I have money , I can buy a camera, else if i have a photographer friend, I can borrow a camera, else I will not do photography.
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu", "python_menu","python_if");
+</script>
+</div>
+</div>
+
+
+<div id="python_if" class="displaynone">
+<div class="Silver toptitle">IF Condition</div>
+<div class="notetext">
+<ul>
+<li>The if, else and elif used to branch program actions.</li>
+</ul>
+</div>
+<pre>
+<code data-language="python">
+#if statement
+#change a and b values 
+a=1
+b=2
+c=a+b
+
+if (c==3) :
+    print ('total is 3')
+else:
+    print ('total is not 3')
+
+# indent (spacing out) your code.
+# every code block indented with tab or 4 spaces
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_conditions", "python_menu","python_if2");
+</script>
+</div>
+</div>
+
+
+<div id="python_if2" class="displaynone">>
+<div class="Silver toptitle">Multiple Conditionals</div>
+<div class="notetext">
+One if statement result can lead to another if statement<br/>
+<span class="Yellow">if it is raining , If I have umbrella, I can go out</span><br/>
+</div>
+<pre>
+<code data-language="python">
+# multiple if statements
+marks = input("Enter marks: ")
+marks = int(marks)
+if marks >= 75:
+    grade = 'A'
+else:
+    if marks >= 60:
+        grade = 'B'
+    else:
+        grade = 'C'
+
+print ("Grade is: " + grade)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_if", "python_menu","python_if3");
+</script>
+</div>
+</div>
+
+<div id="python_if3" class="displaynone">
+<div class="Silver toptitle">Nested Conditions</div>
+<div class="notetext">
+The result of if statement lead to nested if statements<br/>
+The decision making involve multiple condition checks<br/>
+<span class="Yellow">if your are a citizen in Sri Lanka, and if you are 18 years old,and if you wish, you can vote</span><br/>
+</div>
+<pre>
+<code data-language="python">
+# Nested if example 
+marks = input("Enter marks: ")
+marks = int(marks)
+if marks >= 80:
+    grade = 'A'
+else:
+    if marks >= 70:
+        grade = 'B'
+    else:
+        if marks >= 55:
+            grade = 'C'
+        else:
+            if marks >= 50:
+                grade = 'Pass'
+            else:
+                 grade = 'Fail'
+				 
+print ("\n\nGrade is: " + grade)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_if2", "python_menu","python_if4");
+</script>
+</div>
+</div>
+
+<div id="python_if4" class="displaynone">
+<div class="Silver toptitle">else if</div>
+<div class="notetext">
+Python keyword elif used for if else statements<br/>
+It makes programs shorter <br/>
+</div>
+<pre>
+<code data-language="python">
+# using elif  
+marks = input("Enter marks: ")
+marks = int(marks)
+if marks >= 75 :
+    grade = 'A'
+elif marks >= 60:
+    grade = 'B'
+elif marks >= 50 :
+    grade = 'C'
+elif marks >= 40 :
+    grade = 'S'
+else:
+    grade = 'W'
+	
+print ("\n\nGrade is: " + grade)
+</code>
+</pre>
+
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_if3", "python_menu","python_if5");
+</script>
+</div>
+</div>
+
+
+<div id="python_if5" class="displaynone">
+<div class="Silver toptitle">Conditionals with and / or </div>
+<div class="notetext">
+Python keyword elif used for if else statements<br/>
+It makes programs shorter <br/>
+</div>
+<pre>
+<code data-language="python">
+age = input("Enter  age: ")
+age = int(age)
+have_own_car = input("Do you have a car (y/n): ")
+
+if (age >= 18) and (have_own_car == 'y'):
+    print ("You are over 18 years has a car")
+    
+if (age >= 18) and (have_own_car == 'n'):
+    print ("You are over 18 have no  car")
+
+if (age < 18) and (have_own_car == 'y'):
+    print ("You are too young to have a car")
+
+if (age < 18) and (have_own_car == 'n'):
+    print ("You can buy a car when you are 18")
+
+# How can you re-write above code using if, elif,  and , or ?
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_if4", "python_menu","python_if6");
+</script>
+</div>
+</div>
+
+<div id="python_if6" class="displaynone">
+<div class="Silver toptitle">Compact if else</div>
+<div class="notetext">
+Group Main and sub conditions<br/>
+to make programs shorter <br/>
+</div>
+<pre>
+<code data-language="python">
+#car sales program
+age = input("Enter  age: ")
+age = int(age)
+have_own_car = input("Do you have a car (y/n): ")
+
+if (age >= 18):
+	if (have_own_car == 'y'):
+		print ("Would you like to buy a new car?")
+	else:
+		print ("Would you like to buy a car?")
+else: 
+	print ("Please ask your parents to buy a car")
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_if5", "python_menu","python_conditions");
+</script>
+</div>
+</div>
+
+<!--------section loops------------------------>
+<div id="python_loops" class="displaynone">
+<div class="Silver toptitle">Loops</div>
+<div class="notetext">
+Loops help carry out a sequence of statements repeatedly. <br/>
+Python has while loop and the for loop.<br/>
+</div>
+<pre>
+<code data-language="python">
+# while loop repeats until a condition is true
+x = 1
+while x < 5:  # condition for loop
+	#following code  executed 4 times
+    print (x)
+    x = x + 1
+    print ('I love python')
+
+print ('done')
+
+# Loop to calculate average of 3 numbers
+total = 0.0 
+count = 0 
+while count < 3:
+    number=float(input("Enter a number: "))
+    count = count + 1
+    total = total + number
+average = total / 3
+print ("The average is " + str(average))
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu", "python_menu","python_loops2");
+</script>
+</div>
+</div>
+
+<div id="python_loops2" class="displaynone">
+<div class="Silver toptitle">For Loops</div>
+<div class="notetext">
+For Loops repeat specific number of times  <br/>
+Python has while loop and the for loop.<br/>
+</div>
+<pre>
+<code data-language="python">
+#  counter-controlled for loop
+# range (10) is 0 through 9
+for i in range (10):   
+    print (i)
+
+#range (5,10) is 5 through 9
+for c in range (5,10):  
+    print (c)
+
+# calculate the sum of numbers in a range
+sum=0
+for i in range (10):   
+    sum=sum+ i
+print(sum)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_loops", "python_menu","python_loops3");
+</script>
+</div>
+</div>
+
+<div id="python_loops3" class="displaynone">
+<div class="Silver toptitle">Break</div>
+<div class="notetext">
+Loops can be broken with break statement.<br/>
+</div>
+<pre>
+<code data-language="python">
+#break with the for loop
+for c in range (1,6):
+    if c == 3:
+        break
+    print (c)
+
+#non stop runner
+while 1:
+    print ('Running? ')
+    print ('Press the Ctrl + C')
+    print ('to stop running')
+print ('I am out of loop')
+print ('done')
+
+# breaking out of loop
+while 1:
+    print ('running')
+    answer = input('Press y to end')
+    if answer == 'y':
+        print ('you stopped me?')
+        break # get out of loop
+		
+print ('Out of loop')
+print ('done!')
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_loops2", "python_menu","python_loops4");
+</script>
+</div>
+</div>
+
+<div id="python_loops4" class="displaynone">
+<div class="Silver toptitle">Continue</div>
+<div class="notetext">
+Loops can be continued with continue statement.<br/>
+</div>
+<pre>
+<code data-language="python">
+# continue with for
+for letter in 'Python':     
+   if letter == 'h':
+      continue
+   print 'Current Letter :', letter
+
+#  continue with while
+var = 10                    # Second Example
+while var > 0:              
+   var = var -1
+   if var == 5:
+      continue
+   print 'Current variable value :', var
+print "Good bye!"
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_loops3", "python_menu","python_loops5");
+</script>
+</div>
+</div>
+
+
+<div id="python_loops5" class="displaynone">
+<div class="Silver toptitle">Pass</div>
+<div class="notetext">
+The pass statement does nothing when it executes. 
+</div>
+<pre>
+<code data-language="python">
+for letter in 'Python': 
+   if letter == 'h':
+      pass
+      print 'This is pass block'
+   print 'Current Letter :', letter
+
+print "Good bye!"	  
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_loops4", "python_menu","python_loops6");
+</script>
+</div>
+</div>
+
+<div id="python_loops6" class="displaynone">
+<div class="Silver toptitle">Loop in a loop</div>
+<div class="notetext">
+Loops can be in another loop.<br/>
+</div>
+<pre>
+<code data-language="python">
+# loop in a loop, what is the out put
+for num in range(10):  #to iterate between 10 to 20
+   for j in range(10):
+		print (i * j) 
+
+# Loop inside a loop with while
+''
+First loop x < 6 repeats 5 times,
+within y < 6 a loop repeats 5 times
+total 25 processes run
+'''
+x = 1
+while (x < 6):
+    print () # prints a new line
+    print ("x = " + str(x),) # the , prints next item on the same line                          
+    x = x + 1
+    y = 1
+    while (y < 6):
+        print ("y = " + str(y),)  
+       y=y+1
+       z= x * y
+print (x)
+print(y)
+print(z)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_loops5", "python_menu","python_loops7");
+</script>
+</div>
+</div>
+
+
+<div id="python_loops7" class="displaynone">
+<div class="Silver toptitle">range() function </div>
+<div class="notetext">
+<span class="Yellow">The range() function has 3 parameters</span><br/>
+<span class="Pink">range([start], stop[, step])</span> 
+The first and last parameters are optional<br/>
+<span class="Green">start: Starting number <br/>
+stop: Generate numbers up to, not including this number.<br/>
+step: Difference between each number</span><br/>
+<span class="unBlue">All parameters must be integers.</span><br/>
+<span class="Orange">parameters can be positive or negative.pan><br/>
+<span class="Yellow">range(0, 5) generates integers from 0 up to 5, not including, 5.</span>
+</div>
+<pre>
+<code data-language="python">
+#What will be the output of following
+for i in range(5):
+      print(i)
+
+for i in range(3,6):
+      print(i)
+
+for i in range(2,10,2):
+      print(i)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_loops6", "python_menu","python_loops8");
+</script>
+</div>
+</div>
+
+
+<div id="python_loops8" class="displaynone">
+<div class="Silver toptitle">Loops with Conditions</div>
+<div class="notetext">
+Loops can be combined with conditions.<br/>
+</div>
+<pre>
+<code data-language="python">
+# loop in a loop example with  break
+# print prime numbers
+for num in range(10,20):  #to iterate between 10 to 20
+   for i in range(2,num): #to iterate on the factors of the number
+      if num%i == 0:      #to determine the first factor
+         j=num/i #to calculate the second factor
+         print '%d equals %d * %d' % (num,i,j)
+         break #to move to the next number, the #first FOR
+   else:        # else part of the loop
+      print num, 'is a prime number'
+
+# what is the output of this program	  
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_loops7", "python_menu","python_loops");
+</script>
+</div>
+</div>
+
+<!-------------section functions------------------------------>
+    
+<div id="python_functions" class="displaynone">
+<div class="Silver toptitle">Functions</div>
+<div class="notetext">
+A function is a block of code used to perform a single action.
+<ul>
+<li><span class="Yellow">Functions</span> takes inputs called <span class="Pink">parameters</span></li>
+<li>Funtions <span class="unBlue">process inputs</span> and <span class="Yellow">return a result</span></li>
+<li>There are pyton <span class="Pink">built-in functions</span> like <span class="Yellow">print()</span></li>
+<li>You can create your own <span class="Yellow">user-defined functions.</span></li>
+<li>1st line used to describe the function. This line is not executed</li>
+<li>Functions provide better modularity.</li>
+</div>
+<pre>
+<code data-language="python">
+# Function definition 
+def greeting():
+    print ("Hello Friend!")
+    print ("Welcome to Python!")
+
+greeting()
+greeting()
+greeting()
+
+# Function with parameters
+def printme( str ):
+   "I print a string passed to me"
+   print (str)
+   return; #  can return none
+
+# call printme function
+printme("1st call to printme function")
+printme("2nd call to same function")	  
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu", "python_menu","python_functions2");
+</script>
+</div>
+</div>
+
+<div id="python_functions2" class="displaynone">
+<div class="Silver toptitle">Return value</div>
+<div class="notetext">
+Functions return a value after code execution.
+</div>
+<pre>
+<code data-language="python">
+# adding function
+def addTwo( a,b ):
+   c=a+b
+   return c; #  return value
+
+# calling addTwo function
+
+d=addTwo (1,3)	
+print (d) 
+e=addTwo (d,3)	
+print (d) 
+f= addTwo (d,e)
+print(f)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions", "python_menu","python_functions3");
+</script>
+</div>
+</div>
+
+
+<div id="python_functions3" class="displaynone">
+<div class="Silver toptitle">Passed by reference</div>
+<div class="notetext">
+All variables passed to functions as parameters are <span class"Pink"> passed by reference.</span>
+<span class"Yellow">any change reflects back in the passed variable.</span>
+</div>
+<pre>
+<code data-language="python">
+def appendMe( mylist ):
+   mylist.append([1,2,3,4]);
+   print "Values inside the function: ", mylist
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30];
+appendMe( mylist );
+print "Values outside the function: ", mylist
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions3", "python_menu","python_functions3x");
+</script>
+</div>
+</div>
+
+<div id="python_functions3x" class="displaynone">
+<div class="Silver toptitle">Changing Parameter values</div>
+<div class="notetext">
+<span class"Yellow">The change to parameter value reflects back in the passed variable.</span>
+</div>
+<pre>
+<code data-language="python">
+#Example 
+def changeMe( mylist ):
+   mylist = [1,2,3,4]; # assign new reference in mylist
+   print ("Values inside the function: ", mylist)
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30];
+print (Values before passing", mylist)
+changeMe( mylist );
+print (Values after passing", mylist)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions3", "python_menu","python_functions4");
+</script>
+</div>
+</div>
+
+<div id="python_functions4" class="displaynone">
+<div class="Silver toptitle">Functions inside Functions</div>
+<div class="notetext">
+Functions can call other functions inside their code</span>
+</div>
+<pre>
+<code data-language="python">
+#using multiple functions
+
+def cube( y ):
+    c= y * y * y
+   return c
+
+def doublecube ( z ):
+    z=z * 2
+     dc=cube( z) # calls cube here
+ return dc
+
+print ("Cubes")
+for x in range(1,6):
+    print (cube(x))
+    
+print ("1 to 5 doubled")
+for x in range(1,6):    
+    print (doublecube(x))	
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions3", "python_menu","python_functions5");
+</script>
+</div>
+</div>
+
+<div id="python_functions5" class="displaynone">
+<div class="Silver toptitle">Boolean Functions</div>
+<div class="notetext">
+Functions can return a boolean value</span>
+</div>
+<pre>
+<code data-language="python">
+#checks if a number is positive
+def isPositive(x):
+    if (x >= 0):
+        return 1 # 1 is true
+    else:
+        return 0 # 0 is false
+    
+result = isPositive(1)
+print (result)
+result = isPositive(-1)
+print (result)
+
+#division by zero check
+def xdivision(x,y):
+    if (y == 0):
+        print ("division by zero not allowed")
+        return
+    else:
+        return x / y
+
+result = xdivision( 5.0 , 2 )
+print (result)
+result = xdivision( 5.0 , 0 )
+print (result)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions4", "python_menu","python_functions6");
+</script>
+</div>
+</div>
+
+
+<div id="python_functions6" class="displaynone">
+<div class="Silver toptitle">Math Functions</div>
+<div class="notetext">
+You need to import math module to call math functions.
+</div>
+<pre>
+<code data-language="python">
+import math # import math module
+
+# Negative number.
+n = -100.5
+# Absolute value.
+print(abs(n))
+
+# Fractional number.
+n = 100.7
+# Absolute value.
+print(math.floor(n)) # output 100.0
+print(math.ceil(n)) # output 101.0
+
+#Rounding to number of decimal places
+number = 1.23456
+print(round(number))
+print(round(number, 0))
+print(round(number, 1))
+print(round(number, 2))
+print(round(number, 3))
+
+#Output
+1        0 digits
+1.0      0 digits
+1.2      1 digit
+1.23     2 digits
+1.235    3 digits
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions5", "python_menu","python_functions7");
+</script>
+</div>
+</div>
+
+
+<div id="python_functions7" class="displaynone">
+<div class="Silver toptitle">Math Functions 2</div>
+<div class="notetext">
+</div>
+<pre>
+<code data-language="python">
+# Input list.
+values = [0.9999999, 1, 2, 3]
+# Sum values in list.
+r = sum(values)
+print(r)
+
+# Sum values with fsum.
+r = math.fsum(values)
+print(r)
+
+value1 = 123.45
+truncate1 = math.trunc(value1)
+print(truncate1)
+
+# sqrt function
+value1 = 4
+print(math.sqrt(value1))
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions5", "python_menu","python_functions8");
+</script>
+</div>
+</div>
+
+<div id="python_functions8" class="displaynone">
+<div class="Silver toptitle">Math Functions 3</div>
+
+<div class="notetext">
+</div>
+<pre>
+<code data-language="python">
+# math.pow function
+a = math.pow(2, 3)
+
+# Use ** operator
+b = 2 ** 3
+
+# Print results
+print(a)
+print(b)
+
+# returns the value of e.
+print(math.e)
+
+# returns the value of pi.
+print(math.pi)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_functions7", "python_menu","python_functions");
+</script>
+</div>
+</div>
+
+<!-----------------------section string operations----------------->
+
+<div id="string_operations" class="displaynone">
+<div class="Silver toptitle">String Formatting</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+# strings and number outputs
+r = 10
+c = 75
+print ('Total is: ', r, 'Rupees and', c, ' cents')
+
+# %d means integer 
+x = 20
+y = 75
+print ('The sum of %d and %d is %d' % (x, y, x + y))
+
+# %f means float
+x = 20.512
+y = 15.269
+print ('The sum of %f and %f is %f' % (x, y, x + y))
+
+# % mean string
+print "My name is %s and I am  %d years old!" % ('Hiruni', 19) 
+</code>
+</pre>
+
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu", "python_menu","string_formatting2");
+</script>
+</div>
+</div>
+
+<div id="string_formatting2" class="displaynone">
+<div class="Silver toptitle">String Formatting</div>
+<div class="notetext">
+</div>
+<pre>
+<code data-language="python">
+%c	character
+%s	string 
+%d	signed decimal integer
+%f	floating point real number
+
+%i	signed decimal integer
+%u	unsigned decimal integer
+
+%o	octal integer
+%x	hexadecimal integer (lowercase)
+%e	exponential notation 
+
+# what would be printed
+a=2.50
+b=3.42
+c=5
+print ("I have %d and  %d and %f !" % (a, b,c ) )
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("string_formatting", "python_menu","string_functions");
+</script>
+</div>
+</div>
+
+
+<div id="string_functions" class="displaynone">
+<div class="Silver toptitle">String Functions</div>
+<div class="notetext">
+</div>
+<pre>
+<code data-language="python">
+#capitalize()  - Capitalizes first letter of string
+str = "this is python!";
+print (str.capitalize())
+
+#upper() - Converts to uppercase.
+print (str.upper())
+
+#lower() - Converts lowercase.
+print (str.lower())
+
+#len(string) - Returns the length of the string
+print (len(str))
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("string_formatting2", "python_menu","string_slicing");
+</script>
+</div>
+</div>
+
+<div id="string_slicing" class="displaynone">
+<div class="Silver toptitle">String slicing</div>
+<div class="notetext">
+Python strings are sequences of individual characters.
+<span color="Yellow">Like lists and tuples. </span>
+The first character is at index 0</span>
+</div>
+<pre>
+<code data-language="python">
+
+s = "Niranjan Meegammmana"
+print(s[1])
+#python use a  0 based index
+print(s[0])
+
+# access last charator
+print(s[-1])
+
+# obtain a sub string 
+# from 0 to 5 , excluding 5
+print(s[0:5])
+# from 1 to 5 , excluding 5 
+print(s[1:5])
+
+# return pos 4 to end
+print(s[4:])
+print(s[:]) # whole string
+# return upto 4, excluding 4
+print(s[:4])
+print(s[0:1])
+
+#slice your full name into 2 parts
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("string_functions", "python_menu","string_functions2");
+</script>
+</div>
+</div>
+
+<div id="string_functions2" class="displaynone">
+<div class="Silver toptitle">String Functions 2</div>
+<div class="notetext">
+<span class="Yellow">isnumeric() - Returns true if the string is numeric.</span><br/>
+<span class="unBlue">isdigit() - Returns true if string contains only digits.<span><br/>
+<span class="Orange">isalpha() - Returns true if all characters are alphabetic.<span><br/>
+</div>
+<pre>
+<code data-language="python">
+#isnumeric
+str1 = "this2016";  
+str2 = "23443434"; 
+print (str1.isnumeric())
+print (str2.isnumeric())
+
+#isdigit()
+print (str1.isdigit())
+print (str2.isdigit())
+
+#isalpha()
+print (str1.isalpha())
+print (str2.isalpha())
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("string_slicing", "python_menu","string_functions3");
+</script>
+</div>
+</div>
+
+<div id="string_functions3" class="displaynone">
+<div class="Silver toptitle">String Functions 3</div>
+<div class="notetext">
+<span class="Orange">split(str) - Breaking up strings into smaller strings; <span><br/>
+</div>
+<pre>
+<code data-language="python">
+# split(str)
+x = 'blue,red,green'
+y=x.split(",") # breaks down to array of strings
+print (y)
+print (y[0])
+#output is ['blue', 'red', 'green'] a list
+
+#another example
+a,b,c=x.split(",")
+a,b,c=x.split(",")
+print(a)
+
+words = "This is some text for python"
+# split with space
+words2 = words.split(" ") 
+print(words2)
+#what will be the output
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("string_functions2", "python_menu","string_functions4");
+</script>
+</div>
+</div>
+
+<div id="string_functions4" class="displaynone">
+<div class="Silver toptitle">String Functions 4</div>
+<div class="notetext">
+<span class="Yellow">join(seq) -  concatenates the elements in seq list.</span><br/>
+</div>
+<pre>
+<code data-language="python">
+
+#join
+s = "*";
+seq = ("a", "b", "c"); # This is sequence of strings.
+print s.join( seq )
+# output is a*b*c
+
+s = " ";
+seq = ("a", "b", "c"); # This is sequence of strings.
+print s.join( seq )
+# what will be the output
+
+words = "This is some text for python"
+# split with space
+words2 = words.split(" ") 
+print(words2)
+#what will be the output
+
+
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("string_functions3", "python_menu","string_functions5");
+</script>
+</div>
+</div>
+
+<div id="string_functions5" class="displaynone">
+<div class="Silver toptitle">String Functions 5</div>
+<div class="notetext">
+<span class="Green">replace(oldstr, newstr ) - Replace all occurrences of oldstr with newstr<span><br/>
+<span class="unBlue">find(str) - Determine if str occurs in string<span><br/>
+</div>
+<pre>
+<code data-language="python">
+str = "Kandy is a cool town";
+str1=str.replace("Kandy", "Jaffna")
+print (str1)
+#output will be Jaffna is a cool town
+
+str2=str.replace("Kandy", "Candy")
+str3=str2.replace("cool", "tasty")
+str4=str3.replace("town", "food")
+print (str4) # what would the output?
+
+#find
+str1 = "Google is a search engine!";
+str2 = "search";
+print str1.find(str2)
+# wi youll give 12 the character location from 0
+print str1.find("Yahoo") #will return -1, if not found
+
+#what will be the output of 
+print str1.find("a")
+print str1.find("a")
+# 16 where to start search
+print str1.find("a",16)
+# 16 where to start search
+print str1.find("a",16,)
+# 20 is where to stop search
+print str1.find("e",16,20)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("string_functions4", "python_menu","string_operations");
+</script>
+</div>
+</div>
+
+
+<!-------------section lists------------------------------>
+
+<div id ="python_lists" class="displaynone">
+<div class="Silver toptitle">List Processing</div>
+<div class="notetext">
+You can iterate thorough elements of Lists<br/>
+</div>
+<pre>
+<code data-language="python">
+myList=[1,2,3,4,5,6]
+for x in myList:
+	print x
+# What would be the output?
+
+# Using range() to iterate
+
+n=len(myList)
+for i in range(n):
+	print myList[i] # access the element as an array
+  	
+	</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu","python_menu","python_lists1");
+</script>
+</div>
+</div>
+
+<div id="python_lists1" class="displaynone">
+<div class="Silver toptitle">List in a List</div>
+<div class="notetext">
+<span class="Yellow">Consider a List as an array</span><br/>
+<span class="Pink">A list have another list as an item.</span><br/>
+If you have to make a list of students in Sri Lanka sorted by district, school, class and name, <br/>
+<span class="Red">How do you design a python list to enter data?</span><br/>
+First you need a district list, each district needs a schools list,  each school needs classes list,  and each class needs a student list.<br/>
+</div>
+<pre>
+<code data-language="python">
+#So the list of lists would be like this
+studentList=[district1 [school1 [class1[ std1, std2,... ]]]], ...] 
+
+</code>
+</pre>
+
+<div class="menu_butn xleft topfix">
+
+<script>
+crtNavigation("python_lists", "python_menu","python_lists1x");
+</script>
+</div>
+</div>
+
+    
+<div id="python_lists1x" class="displaynone">
+<div class="Silver toptitle">Python List Methods</div>
+<div class="notetext">
+Python list can be manipulated with following methods
+</div>
+<pre>
+<code data-language="python">
+append (object) - insert object to end of the list.
+insert (index, object) - insert object before index.
+pop ([index])- Remove and return item at index 
+remove (value) - remove first occurrence of value
+reverse() - Reverse the items of the list
+sort () - Sort the items of the list 
+count (value)  - Return number of occurrences of a value  .
+index (value)  - Return index of first occurrence of value 
+extend (list)  - appending a list to a list
+</code>
+</pre>
+
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_lists1", "python_menu","python_lists2");
+</script>
+</div>
+</div>
+
+<div id="python_lists2" class="displaynone">
+<div class="Silver toptitle">Append</div>
+<div class="notetext">
+</div>
+<pre>
+<code data-language="python">
+#append
+myList = [123, 'Niranjan',  8.2];
+myList.append( 2016 );
+print (myList)
+#output is [123,'Niranjan',8.2,2016]
+
+myList=[] # create empty list
+for i in range(10):
+   myList.append(i)
+print (myList)
+#what would be the output
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_lists", "python_menu","python_lists3");
+</script>
+</div>
+</div>
+
+<div id="python_lists3" class="displaynone">
+<div class="Silver toptitle">Insert</div>
+<div class="notetext">
+insert syntax : list.insert(index, obj)
+<span class="Pink">insert can insert object anywhere in list.</span> <br/>
+<span class="unBlue">pop ()- Remove and return last item.</span><br/>
+<span class="Yellow">pop (index)- Remove and return item at index.</span><br/>
+</div>
+<pre>
+<code data-language="python">
+myList = [1,2,3]
+myList.insert(0,6) # insert 6 at 0 index
+print (myList)
+#output is [6, 1, 2, 3]
+
+# remove and return last item
+n=myList.pop() ; 
+print (n) # output is 3
+print (myList) # output is [6, 1, 2]
+#remove and return item at index 2 (3rd)
+n1=myList.pop(2);
+print (n1) # output is 2
+print (myList) #output is[6, 1]
+#study the output and explain
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_lists3", "python_menu","python_lists3x");
+</script>
+</div>
+</div>
+
+<div id="python_lists3x" class="displaynone">
+<div class="Silver toptitle">Remove</div>
+<div class="notetext">
+<span class"Yellow">remove (value) - remove first occurrence of value</span>
+</div>
+<pre>
+<code data-language="python">
+myList = [1,2,3,4,5,"Sam", "Niranjan", "Sam"];
+myList.remove(4);
+print(myList)
+
+#output is [1, 2, 3, 5, 'Sam', 'Niranjan', 'Sam']
+myList.remove('Sam');
+print(myList)
+#output is [1, 2, 3, 5, 'Niranjan', 'Sam'] why ?
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_lists3", "python_menu","python_lists4");
+</script>
+</div>
+</div>
+
+<div id="python_lists4" class="displaynone">
+<div class="Silver toptitle">Sort, Reverse & Count</div>
+<div class="notetext">
+<span class"Green">sort () - Sort the items of the list </span><br/>
+<span class"Yellow">reverse() - Reverse the items of the list</span><br/>
+<span class"Pink">count (value)  - Count of how many times obj occurs in list.</span>
+</div>
+<pre>
+<code data-language="python">
+
+myList = [1,2,3,4,5,"Sam"];
+myList.reverse();
+print(myList)
+#output is ['Sam', 5, 4, 3, 2, 1]
+
+myList.sort();
+print(myList)
+#output is [1, 2, 3, 4, 5, 'Sam']
+
+myList.append("Sam")
+print(myList)
+n=myList.count("Sam")
+print(n)
+#what would be the output
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_lists3", "python_menu","python_lists5");
+</script>
+</div>
+</div>
+
+<div id="python_lists5" class="displaynone">
+<div class="Silver toptitle">Stacks</div>
+<div class="notetext">
+<span class"Yellow">stack is data structure serves as a list with two main operations</span><br/>
+<span class"Pink">push : adds an element to the top </span><br/>
+<span class"unBlue">pop: removes the most recently added element</span><br/>.
+<div><img src="imgx/stack.png" width="250px"></div>
+<span class"Yellow">Stacks use Last In First Out (LIFO) method</span><br/>
+</div>
+<pre>
+<code data-language="python">
+stack= []
+stack.append(1)
+stack.append("Sri Lanka")
+stack.append( 4)
+stack.append( "India")
+print(stack)
+
+a=stack.pop()
+print(a)
+print(stack)
+stack.pop()
+print(stack)
+# analyse following outputs
+[1, 'Sri Lanka', 4, 'India']
+India
+[1, 'Sri Lanka', 4]
+[1, 'Sri Lanka']
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_lists4", "python_menu","python_lists6");
+</script>
+</div>
+</div>
+
+<div id="python_lists6" class="displaynone">
+<div class="Silver toptitle">Queue</div>
+<div class="notetext">
+<span class"Yellow">Queue is a list data structure with two main operations</span><br/>
+<span class"Pink">push : adds an element to the last (enque) </span><br/>
+<span class"unBlue">pop: removes the first element (deque)</span><br/>.
+<div><img src="imgx/queue.png" width="250px"></div>
+<span class"Yellow">Queues use First In First Out (FIFO) method</span><br/>
+</div>
+<pre>
+<code data-language="python">
+queue= []
+queue.append(1)
+queue.append("Sri Lanka")
+queue.append( 4)
+queue.append( "India")
+print(queue)
+
+x=queue.pop(0)
+print(x)
+print(queue)
+y=queue.pop(0)
+print(y)
+print(queue)
+
+#analyse following output
+[1, 'Sri Lanka', 4, 'India']
+1
+['Sri Lanka', 4, 'India']
+Sri Lanka
+[4, 'India']
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_lists5", "python_menu","list_dimension");
+</script>
+</div>
+</div>
+
+<div id ="list_dimension" class="displaynone">
+<div class="Silver toptitle">List Dimension</div>
+<div class="notetext">
+In python we have to declare size of lists with elements<br/>
+We can change values run time of existing elements <br/>
+But we can't assign a value to a non existing element<br>
+<br/>
+For this we have to tell python how big our 
+</div>
+<pre>
+<code data-language="python">
+myList=[]
+myList[0]=7 # will not work
+
+myList=[2]
+myList[0]=7 # will work
+myList[1]=8 # will not work
+
+#you can add an item this way
+myList.append(7)
+
+#write a program to fill a list with 100 numbers
+
+myList=[]
+for i in range(0,100):
+	myList.append(i)
+print (myList)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_tuples","python_menu","list_dimension2");
+</script>
+</div>
+</div>
+
+<div id ="list_dimension2" class="displaynone">
+<div class="Silver toptitle">List Declaration</div>
+<div class="notetext">
+We can declare list with specific number of elements<br/>
+<span class="Yellow">We have to tell python how many elements going to be there in our list</span><br/>
+</div>
+<pre>
+<code data-language="python">
+# declare a list with 10 items and
+n=10
+myList=[0 for i in range(n)] # 
+print (myList) # elements value set to 0
+
+#output will be 
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+# another example check output
+myList=[i*i for i in range(10)]
+print (myList)
+#sets myList to [0, 1, 4, 9, 16, 25, 36, 49, 64, 81].
+
+# using a function to initialize arrays 
+def dim3( n):   
+   return n*n*n
+
+print (dim3(2))
+myList=[dim3(i) for i in range(10)]
+print (myList)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("list_dimension","python_menu","python_lists");
+</script>
+</div>
+</div>
+
+<!-----------------section dictionaries------------>
+<div id="python_dictionaries" class="displaynone">
+<div class="Silver toptitle">Sort, Reverse & Count</div>
+<div class="notetext">
+<span class"Yellow">Dictionaries keep key value pairs separated by a colon (:)</span><br/>
+
+<span class"Pink">items are separated by commas and enclosed with{}.</span>
+</div>
+<pre>
+<code data-language="python">
+#declare dictionary
+dict = {'Name': 'Ramesh', 'Age': 17, 'Class': 12};
+print (dict['Name']
+print (dict['Age'])
+#the output will be
+Ramesh
+17
+
+dict['Age'] = 18; # update existing entry
+dict['Class'] = 13; # update existing entry
+dict['School'] = "Ranabima Collage"; # Add new entry
+print(dict)
+#what would be the output
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu", "python_menu","python_dict_methods1");
+</script>
+</div>
+</div>
+
+<div id="python_dict_methods1" class="displaynone">
+<div class="Silver toptitle">Dictionary Methods</div>
+<div class="notetext">
+<span class"Yellow">Dictionaries have set of methods</span><br/>
+</div>
+<pre>
+<code data-language="python">
+dict. clear - Remove all items from the dict.
+dict. items  - Return all of the items in the dict as a sequence of (key,value) tuples. 
+dict. keys  - Return all of the keys in the dict as a sequence of keys. 
+dict. values  - Return all the values from the dict as a sequence. 
+
+dict. pop ( key ) - Remove the given key from the dict, return the associated value
+dict. get ( key) - Get the item with the given key 
+dict. update ( new )  - Merge values from the new dict into the original dict
+
+dict. copy  - Copy the dict to make a new dict. (refers to same object)
+dict. setdefault ( key )  - get the item with the given key. 
+dict. has_key ( key ) - Return true if key is in dict.
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_dictionaries", "python_menu","python_dict_methods2");
+</script>
+</div>
+</div>
+
+
+<div id="python_dict_methods2" class="displaynone">
+<div class="Silver toptitle">Dictionary Methods 2</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+dict = {'Name': 'Ramesh', 'Age': 17, 'Class': 12};
+del dict['Name'] # delete key Name
+print (dict['Name']) # output Ramesh
+x=dict.get('Age') 
+print (x) # output 17
+
+dict.clear()     # remove all entries in dict
+print (dict)     # output is {} empty dictionary
+del dict ;      # delete entire dictionary
+print (dict) #output nothing 
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_dict_methods1", "python_menu","python_dict_methods3");
+</script>
+</div>
+</div>
+
+<div id="python_dict_methods3" class="displaynone">
+<div class="Silver toptitle">Dictionary Methods 3</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+dict = {'Name': 'Ramesh', 'Age': 17, 'Class': 12};
+
+x=dict.keys()
+print (x) # output ['Name', 'Age', 'Class']
+
+y=dict.values()
+print (y) # output ['Ramesh', 17, 12]
+
+z=dict.items()
+print (z) # output [('Name', 'Ramesh'), ('Age', 17), ('Class', 12)]
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_dict_methods2", "python_menu","python_dict_methods4");
+</script>
+</div>
+</div>
+
+
+<div id="python_dict_methods4" class="displaynone">
+<div class="Silver toptitle">Dictionary Methods 3</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+dict = {'Name': 'Ramesh', 'Age': 17, 'Class': 12};
+dict.pop('Class')
+print(dict) # output {'Name': 'Ramesh', 'Age': 17}
+
+dict2 = {'Sex': 'M', 'Height':5.6 }
+dict.update(dict2)
+print (dict)
+#output is {'Name': 'Ramesh', 'Age': 17, 'Sex': 'M', 'Height': 5.6}
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_dict_methods3", "python_menu","python_dict_methods5");
+</script>
+</div>
+</div>
+
+
+<div id ="python_dict_methods5" class="displaynone">
+<div class="Silver toptitle">Dictionary Methods 4</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+dict1 = {'Name': 'Ramesh', 'Age': 17}
+dict2 = dict1.copy()
+print (dict2)
+
+#Return true if key is in dict.
+x=dict.has_key('Age')
+print(x) # output true
+
+dict2 = dict1.copy()
+print (dict2)
+del dict2['Age'] # delete key Name
+print (dict2)
+print (dict1)
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_dict_methods4","python_menu","python_dictionaries");
+</script>
+</div>
+</div>
+
+<!----------------------section files -------------->
+
+<div id ="python_files" class="displaynone">
+<div class="Silver toptitle">Opening Files</div>
+<div class="notetext"></div>
+
+<pre>
+<code data-language="python">
+# Open a file
+fo = open("myfile.txt") # open file 
+fo = open("myfile.txt",) # open file 
+print (fo.name) # output file name
+
+# Open a file for writing
+# wb mean write in binary mode
+fo = open("myfile.txt", "wb") 
+fo.write( "Python is cool\n")
+fo.close() #Close file
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_menu","python_menu","python_files1");
+</script>
+</div>
+</div>
+
+<div id ="python_files1" class="displaynone">
+<div class="Silver toptitle">Opening Files</div>
+<div class="notetext">Files can be opened on read, write, append and binary modes</div>
+
+<pre>
+<code data-language="python">
+#file opening modes
+r		read only.
+rb		read only in binary.
+r+		reading and writing. .
+rb+		reading and writing in binary.
+w		writing only. 
+wb		writing only in binary . 
+w+		writing and reading. 
+wb+		writing and reading in binary. 
+a		appending. 
+ab		appending in binary. 
+a+		appending and reading.
+ab+		appending and reading in binary . 
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_files","python_menu","python_files2");
+</script>
+</div>
+</div>
+
+<div id ="python_files2" class="displaynone">
+<div class="Silver toptitle">Opening Files 2</div>
+<div class="notetext">Reads a string from an open file</div>
+<pre>
+<code data-language="python">
+# Open a file
+fo = open("myfile.txt", "r+") # 
+str = fo.read() # read until end of file
+print (str) # output 'Python is Cool'
+fo.close() # Close file
+
+fo = open("myfile.txt", "r+") # 
+str = fo.read(6) # read 6 characters
+print (str) # output 'Python'
+fo.close() # Close file
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_files1","python_menu","python_files3");
+</script>
+</div>
+</div>
+
+
+<div id ="python_files3" class="displaynone">
+<div class="Silver toptitle">File Positions</div>
+<div class="notetext">tell() method gives current position in file</div>
+<pre>
+<code data-language="python">
+
+fo = open("myfile.txt", "r+")
+str = fo.read(6);
+print (str)
+
+# Check current position
+position = fo.tell();
+print (position)
+str = fo.read(3);
+print (str)
+position = fo.tell();
+print (position)
+
+# Reposition pointer to beginning
+position = fo.seek(0, 0);
+str = fo.read(6);
+print (str)
+fo.close()
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_files2","python_menu","python_files4");
+</script>
+</div>
+</div>
+
+<div id ="python_files4" class="displaynone">
+<div class="Silver toptitle">Read Lines</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+# Open a file
+fo = open("myfile.txt", "rw+")
+line = fo.readline()
+print (line)
+line = fo.readline(5) # read 5 characters from next line
+print (line)
+# Close opend file
+fo.close()
+
+fo = open("myfile.txt", "rw+")
+# read all lines to a list till EOF
+lines = fo.readlines() 
+print (lines)
+# Close opend file
+fo.close()
+
+
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_files3","python_menu","python_files5");
+</script>
+</div>
+</div>
+
+<div id ="python_files5" class="displaynone">
+<div class="Silver toptitle">File Operations</div>
+<div class="notetext"></div>
+<pre>
+<code data-language="python">
+#import os library
+import os
+# Rename myfile.txt to  myfile2.txt
+os.rename( " myfile.txt", "myfile2.txt" )
+
+os.remove("myfile.txt") # remove myfile.txt
+
+os.mkdir("newdir") # Create a directory "newdir"
+
+# Change a directory to "/home/newdir"
+os.chdir("/home/newdir")
+
+#return current working directory
+os.getcwd()
+os.rmdir( "/home/newdir" ) #remove /home/newdir
+</code>
+</pre>
+<div class="menu_butn xleft topfix">
+<script>
+crtNavigation("python_files4","python_menu","python_files");
+</script>
+</div>
+</div>
+
+</body>
+</html>
+
+

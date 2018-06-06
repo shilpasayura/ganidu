@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title id="title">Logic Master</title>
+
+<link rel="stylesheet" type="text/css" href="simcir.css" />
+<link rel="stylesheet" type="text/css" href="simcir-basicset.css" />
+<style type="text/css">
+  html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+		background-color:#e5e3df;
+      }
+	  
+	  
+body
+{
+background-color: #FAFAFA;
+color:#003366;
+font-family:kaputaunicode,serief,Arial;
+font-size: 1.3em;
+margin:0px;
+}
+/*http://webdesignerwall.com/tutorials/5-useful-css-tricks-for-responsive-design*/
+
+#xpage{
+	max-width: 100%;
+	margin: 0px;
+}
+#xcontent{
+}
+img {
+	max-width: 90%;
+	height: auto;
+}
+
+a:link{
+text-decoration:none;
+}
+a:hover{
+text-decoration:none;
+}
+
+ul {
+    list-style: square url(../img/ar2.png);
+}
+
+.li{
+line-height: 1.2em;
+margin-left:0.1em;
+margin-bottom:0.1em;
+}
+
+#xtitle{
+font-size: 1.4em;
+font-weight:bold;
+border: 1px solid #CCCCCC;
+border-top-style: none;
+box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+padding-left:0.5em;
+
+}
+#xdesc{
+margin-left:.2em;
+width:600px;
+max-width: 90%;
+height: auto;
+padding:0.5em;
+background:#FFFFFF;
+}
+
+
+#topmenu {
+margin-left:.5em;
+margin-bottom:0.3em;
+}
+#xheader{
+background:#0489B1;
+background-image:url(logo.png);
+background-position: 5px 3px; 
+background-repeat:no-repeat;
+background: -webkit-gradient: -webkit-linear-gradient(top, rgb(239,1,124) 80%, rgb(177,0,67) 85%);*/
+border-radius:0.2em;
+text-shadow: 1px 1px #000;
+box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+color: #fff;
+font-weight:bold;
+font-size:1.4em;
+padding:0.1em;
+padding-left:1.5em;
+margin-left:0.0em;
+margin-bottom:0px;
+width:auto;
+}
+
+#xfooter{
+background:#0489B1;
+box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+color: #fff;
+font-size:14px;
+padding:5px;
+padding-left:10px;
+margin-top:0px;
+margin-left:0.0em;
+width:auto;
+height:24px;
+}
+.xbtn{
+display: inline;
+height: auto;
+background:#B0B0B0;
+padding-top:.1em;
+padding-bottom:.1em;
+padding-left:.4em;
+padding-right:.4em;
+text-align: center;
+border-radius: .1em;
+color: white;
+font-weight: bold;
+font-size:1.0em;
+margin-top:.1em;
+margin-right:.2em;
+margin-left:0.2em;
+}
+
+#infobar{
+	display:block;
+	height:auto;
+	max-width:500px;
+	font-family:Roboto,Arial;
+	font-size:.7em;
+	padding:5px;
+	font-weight:normal;
+	font-stretch: condensed !important;
+	position:absolute;
+	left:0px;
+	top:42px;
+	background-color:#efefef;
+	box-shadow: 2px 2px 2px #ccc;
+	opacity:0.7;
+	z-index:24;
+	}
+	
+</style>
+ <script>
+ var graphheight=500;
+ var graphwidth=800;
+ graphSize()
+ 
+ function graphSize(){
+	graphwidth = (window.innerWidth|| document.documentElement.clientWidth);
+    graphheight = (window.innerHeight|| document.documentElement.clientHeight);
+	graphheight = graphheight;
+	graphwidth=graphwidth;
+}
+
+ </script>
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+
+<style type="text/css">
+.code {
+  margin: 16px 0px 16px 0px;
+  padding: 4px;
+  border-width: 0px 0px 0px 4px;
+  border-color: #cccccc;
+  border-style: solid;
+  background-color: #f0f0f0;
+  white-space: pre;
+}
+
+.note {
+  color: #0000ff;
+}
+.simcir{
+background:#21610B;
+}
+</style>
+<script>
+function touchHandler(event)
+{
+    var touches = event.changedTouches,
+        first = touches[0],
+        type = "";
+    switch(event.type)
+    {
+		
+        case "touchstart": type = "mousedown"; break;
+        case "touchmove":  type = "mousemove"; break;        
+        case "touchend":   type = "click";   break;
+        default:           return;
+    }
+
+    // initMouseEvent(type, canBubble, cancelable, view, clickCount, 
+    //                screenX, screenY, clientX, clientY, ctrlKey, 
+    //                altKey, shiftKey, metaKey, button, relatedTarget);
+
+    var simulatedEvent = document.createEvent("MouseEvent");
+    simulatedEvent.initMouseEvent(type, true, true, window, 1, 
+                                  first.screenX, first.screenY, 
+                                  first.clientX, first.clientY, false, 
+                                  false, false, false, 0/*left*/, null);
+
+    first.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
+}
+
+function init_touch() 
+{
+    document.addEventListener("touchstart", touchHandler, true);
+    document.addEventListener("touchmove", touchHandler, true);
+    document.addEventListener("touchend", touchHandler, true);
+    document.addEventListener("touchcancel", touchHandler, true);    
+}
+</script>
+</head>
+<body>
+<div id="xheader">
+  Logic Master
+</div>
+
+<script>
+x='<div class="simcir">{"width":' + graphwidth +',"height":'+ graphheight+'}</div>';
+document.write (x);
+</script>
+
+<div id="xfooter">
+   Shilpa Sayura 2015
+</div>
+
+
+<script type="text/javascript" src="simcir.js"></script>
+<script type="text/javascript" src="simcir-basicset.js"></script>
+<script type="text/javascript" src="simcir-library.js"></script>
+</body>
+</html>

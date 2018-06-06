@@ -1,0 +1,520 @@
+<!DOCTYPE HTML>
+<html> 
+<head> 
+
+<title>Code4AL:Python</title>
+<meta name="keywords" content="Photography Infographics, Shilpa Sayura" /> 
+<meta name="description" content="Photography Infographics" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" > 
+<script src="rainbow.min.js"></script>
+<script src="language/generic.js"></script>
+<script src="language/python.js"></script>
+<link href="themes/code4al.css" media="all" rel="stylesheet" />
+
+<style>
+
+body{
+font-family:Roboto,kaputaunicode, sans-serif;background:#093947;color:#fff;
+font-size:30px;
+}
+
+ol,ul{
+margin:0px;
+}
+
+.h1x{font-size:32pt;}
+.h2x{font-size:24pt;}
+.h4x{font-size:18pt;}
+.h5x{font-size:16pt;}
+.h6x{font-size:14pt;}
+
+a{color:#ccc}
+a:hover{text-decoration:none}
+a:active{color:#962b00}
+
+.imgx{
+margin:10px;
+}
+.displaynone1{
+display:none;
+}
+.xright{
+text-align:right;
+}
+.xleft{
+text-align:left;
+}
+.xcenter{
+text-align:center;
+}
+
+#xpage{
+width:100%;
+max-width:540px;
+border:1px solid #294a7b;
+}
+
+.codewrap{
+margin:.4em;
+background: #272822;
+border:1px solid #ccc;
+border-radius:1em;
+padding:0.3em;
+opacity:0.9;
+}
+
+.menu_butn{
+margin:5px;
+}
+
+.menu_butn a{
+background:black;
+margin-left:20px;
+padding:4px;
+padding-left:20px;
+padding-right:20px;
+border-radius:5px;
+text-decoration:none;
+opacity:0.7;
+color:#ccc;
+font-weight:strong;
+font-size:36px;
+}
+
+.qtext {
+margin-left:0.1em;
+}
+.qinfo{
+margin-left:0.2em;
+color:yellow;
+opacity:0.8;
+margin:0.2em;
+}
+#anstext{
+margin-left:1em;
+color:green;
+opacity:0.8;
+font-style:italic;
+}
+#quizbox{
+
+}
+
+.optno{
+font-size:0.9em;
+color:gray;
+}
+
+.quizul{
+margin:0.1em;
+margin-top:0em;
+list-style: none;
+}
+
+.qchoices{
+margin:0.1em;
+cursor:pointer;
+}
+
+.quizul li{
+margin:0.2em;
+margin-left:-0.5em;
+color:lightblue;
+border-bottom:1px solid #5c5d5d;
+list-style: none;
+}
+#qnavibar{
+width:100%;
+text-align:center;
+}
+
+#qnavibar a{
+margin-left:20px;
+margin-right:20px;
+padding-left:30px;
+padding-right:30px;
+text-decoration:none;
+border:1px solid gray;
+border-radium:5px;
+background:black;
+opacity:.9;
+}
+
+.naviprev{
+width:100px;
+}
+.naviprev{
+left-margin:1em;
+}
+
+.qnavi{
+width:100px;
+}
+
+.navinext{
+right-margin:1em;
+}
+
+.link_butn a{
+background:#000;
+margin:10px;
+margin-left:0.5em;
+padding-left:40px;
+padding-right:10px;
+border-radius:5px;
+text-decoration:none;
+color:#ccc;
+font-weight:strong;
+font-style:italic;
+font-size:28px;
+background-image:url(images/logo.png);
+background-size: 20px 20px;
+background-position: 4px, 4px; 
+background-repeat:no-repeat;
+}
+
+.menu{
+padding-left:0px;
+margin:0.2em;
+margin-top:0em;
+list-style: none;
+}
+
+.menu li{
+color:tblue;
+margin:0.1em;
+border-bottom:1px solid #5c5d5d;
+background-image:url(images/logo.png);
+background-size: 30px 30px;
+background-position: 5px, 5px; 
+background-repeat:no-repeat;
+}
+.menu > li a{
+text-decoration:none;
+margin:10px;
+margin-left:50px;
+text-align:left;
+}
+
+/*.menu li:last-child { border-bottom:0px; }*/
+
+.menu1{
+font-size:36px;
+}
+.menu2{
+font-size:32px;
+}
+.topfix{
+margin-top:20px;
+}
+#main_menu, #python_intro1, #python_intro2{
+display:none;
+}
+
+#code_variables{
+display:none;
+}
+
+
+.notelist{
+margin:0.5em;
+width:90%;
+}
+.notetext{
+margin:0.5em;
+margin-left:0.7em;
+color:#ccc;
+width:90%;
+}
+
+
+
+.White{color:#fff}
+.Black{color:#000}
+.Red{color:red;}
+.Orange{color:orange}
+.Yellow{color:yellow}
+.Blue{color:#14a9d6}
+.Green{color:#65c359}
+.Purple{color:purple}
+.Pink{color:pink}
+.Magenta{color:magenta}
+.Brown{color:#e7b681}
+.Gray{color:gray}
+.Pink{color:#ff9e99}
+.Silver{color:#ccc}
+.laBlue{color:CornflowerBlue}
+.Gold{color:Gold}
+.unBlue{color:DeepSkyBlue}
+
+
+#xheader{
+background:#0b2230;
+background-image:url(images/logo.png);
+background-position:10px 10px;
+background-size: 40px 40px;
+background-repeat:no-repeat;
+margin:0.0em;
+text-shadow: 2px 2px #000;
+box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+padding:0.1em;
+padding-left:60px;
+}
+.toptitle{
+margin:10px;
+margin-left:20px;
+font-size:36px;
+}
+#xfooter{
+margin-top:1em;
+background:#0b2230;
+color: #ccc;
+padding:0.1em;
+padding-left:60px;
+margin-left:0.0em;
+}
+
+#homeimg{
+width:100%;
+height:250px;
+background-image:url(images/home.png);
+
+}
+#ux{
+}
+
+
+.codebox{
+padding:0.5em;
+background:#272822;
+margin-top:10px;
+border:1px solid green;
+}
+.codenavi a{
+padding:5px;
+border:1px solid orange;
+text-decoration:none;
+background:green;
+}
+
+#holdtextdiv{
+position:absolute;
+left:0px;
+top:160px;
+z-index:10;
+display:none;
+}
+</style>
+
+</head>
+<body>
+
+
+<div id="xpage">
+<div id="xheader" class="h1x Orange" onclick="home();">
+   Python ගුරු
+</div>
+<div id="ux">
+
+</div>
+<div id="xfooter" class="h1x" onclick="home();"><small>Shilpa Sayura Foundation</small></div>
+</div>
+<!---components-->
+<script>
+function initJSONP(url) {
+    // create script tag
+	
+    var script = document.createElement("script");
+    script.setAttribute("type", "text/javascript");
+ 
+    // append timestamp to avoid browser caching
+    url += (url.indexOf("?") == -1 ? "?" : "&amp;amp;amp;") + (new Date().getTime());
+	//url =url+"&loc="+ datacode;
+    url =url+"&callback=processJSON";
+	console.log("url" ,url);
+    // set script source to the service that responds with thepadded JSON data
+    script.setAttribute("src", url);
+ 
+    // insert script tag
+    document.body.appendChild(script);
+ 
+    // remove script tag by timeout (remove responsibility from callback)
+    setTimeout(function() {
+        document.body.removeChild(script);
+    }, 2000);
+}
+
+
+
+
+function processJSON (json) {
+  // Do something with the JSON response
+    debugger;
+    console.log ("Respond received");
+    console.log ("json : " , json);
+	console.log (json.length);
+	
+	 
+};
+
+</script>
+<script>
+
+function quizNavigation(p,m, n){
+var strVar="";
+if (p >= 0) {
+	strVar += "<span class='naviprev'><a href=\"#\" onclick=\"dispQuestion('" + p + "')\"><<\/a></span>";
+}
+if (m == 0) {
+	strVar += " <span class='navimid'><a href=\"#\" onclick=\"dispQuestion('0')\">§<\/a></span>";
+}
+if (n > 0) {
+	strVar += " <span class='navinext'><a href=\"#\" onclick=\"dispQuestion('" + n + "')\">><\/a></span>";
+}
+
+return strVar;
+}
+
+function showhide(xdiv){
+	if (document.getElementById(xdiv).style.visibility=="visible"){
+		document.getElementById(xdiv).style.visibility="";
+	}else {
+		document.getElementById(xdiv).style.visibility="visible";
+	}
+}
+
+function displaydiv(xparent,xchild){
+	var x=document.getElementById(xchild).innerHTML;
+	document.getElementById(xparent).innerHTML=x;
+	activechild=xchild;
+}
+
+function updateDiv(xparent,xcname,s){
+	document.getElementById(xparent).innerHTML=s;
+	xchild=document.getElementById(xcname).innerHTML
+	activechild=xchild;
+}
+
+function quest(id, question, help,ans, anstext, choices  ) {
+    this.id = id;
+    this.last = last;
+	this.id=id;
+	this.question=question;
+	this.help=help;
+	this.ans=ans;
+	this.anstext=anstext;
+	this.choices=choices; // array
+}
+
+function loadQdata(url){
+
+//var quiztext='[{"id":1,"q":"Who created Python","inf":"He wanted own langauge","ans":1,"atext:":"Rossum was unmarried","cho":["Rossum","Jack Stef","La Bambo","Dilan","Sri Lak"]},{"id":2,"q":"What is the correct code to print ^Hello^ in  Python 3.x","inf":"","ans":3,"atext:":"","cho":["print {^Hello Python^}","print {^Hello Python^}","print (^Hello Python^)","print (^Hello Python^)","print Hello Python"]},{"id":3,"q":"What does this code output?","inf":"a = 1</br>b = 3</br>print(a + b)</br>","ans":4,"atext:":"","cho":["a+b","1+3","a+b","code is invalid.","4"]},{"id":4,"q":"What does this code output?","inf":"a = 1</br>b = 3</br>print(^a + b^)</br>","ans":2,"atext:":"","cho":["print(^a+b^)","a+b","Code is invalid.","4","The values of a and b added"]},{"id":5,"q":"What does this code output?","inf":"print(^The answer to 10+10 is,^ 10+10)","ans":2,"atext:":"","cho":["The answer to 10+10 is 10+10","Nothing, the code is invalid.","The answer to 10+10 is10+10","","The answer to 10+10 is20"]},{"id":6,"q":"What does this code output?","inf":"print(^Hello^)","ans":2,"atext:":"Comments are not run","cho":["There is an error in the code","This is comment","Hello","Hello^","hello"]},{"id":7,"q":"What does this code output?","inf":"x = 10<br/>print(^x^)","ans":3,"atext:":"","cho":["10","Nothing","x","",""]},{"id":8,"q":"What does this code output?","inf":"x = 10<br/>x+1<br/>print(x)","ans":4,"atext:":"","cho":["x + 1","11","Nothing","10",""]},{"id":9,"q":"What does this code output?","inf":"x = 10 + 6 / 2<br/>x = x + 1<br/>print(x)","ans":3,"atext:":"","cho":["14","9","13","8",""]},{"id":10,"q":"What does this code output?","inf":"x = input(^Enter a value:^)<br/>print(x / 2)","ans":2,"atext:":"","cho":["The value entered divided by two.","An error because the value was not converted to a number.","","The value the user entered.",""]},{"id":11,"q":"What does this code output?","inf":"print(^Have a ^great^ day!^)","ans":3,"atext:":"","cho":["Have a great^ day!^","Have a great^ day!^","Nothing, the double quotes make for a syntax error.","",""]},{"id":12,"q":"What does this code output?","inf":"print(^Save in c:\new folder^)","ans":4,"atext:":"Esacpe Code Issue ","cho":["Save in c:ew folder","Save in c:","ew folder","The escape code makes an syntax error.","Save in c:\new folder"]}]';
+//var quiztext="[{\"id\":1,\"q\":\"Who created Python\",\"inf\":\"He wanted own langauge\",\"ans\":1,\"atext:\":\"Rossum was unmarried\",\"cho\":[\"Rossum\",\"Jack Stef\",\"La Bambo\",\"Dilan\",\"Sri Lak\"]},{\"id\":2,\"q\":\"What is the correct code to print ^Hello^ in  Python 3.x\",\"inf\":\"\",\"ans\":3,\"atext:\":\"\",\"cho\":[\"print {^Hello Python^}\",\"print {^Hello Python^}\",\"print (^Hello Python^)\",\"print (^Hello Python^)\",\"print Hello Python\"]},{\"id\":3,\"q\":\"What does this code output?\",\"inf\":\"a = 1</br>b = 3</br>print(a + b)</br>\",\"ans\":4,\"atext:\":\"\",\"cho\":[\"a+b\",\"1+3\",\"a+b\",\"code is invalid.\",\"4\"]},{\"id\":4,\"q\":\"What does this code output?\",\"inf\":\"a = 1</br>b = 3</br>print(^a + b^)</br>\",\"ans\":2,\"atext:\":\"\",\"cho\":[\"print(^a+b^)\",\"a+b\",\"Code is invalid.\",\"4\",\"The values of a and b added\"]},{\"id\":5,\"q\":\"What does this code output?\",\"inf\":\"print(^The answer to 10+10 is,^ 10+10)\",\"ans\":2,\"atext:\":\"\",\"cho\":[\"The answer to 10+10 is 10+10\",\"Nothing, the code is invalid.\",\"The answer to 10+10 is10+10\",\"\",\"The answer to 10+10 is20\"]},{\"id\":6,\"q\":\"What does this code output?\",\"inf\":\"print(^Hello^)\",\"ans\":2,\"atext:\":\"Comments are not run\",\"cho\":[\"There is an error in the code\",\"This is comment\",\"Hello\",\"Hello^\",\"hello\"]},{\"id\":7,\"q\":\"What does this code output?\",\"inf\":\"x = 10<br/>print(^x^)\",\"ans\":3,\"atext:\":\"\",\"cho\":[\"10\",\"Nothing\",\"x\",\"\",\"\"]},{\"id\":8,\"q\":\"What does this code output?\",\"inf\":\"x = 10<br/>x+1<br/>print(x)\",\"ans\":4,\"atext:\":\"\",\"cho\":[\"x + 1\",\"11\",\"Nothing\",\"10\",\"\"]},{\"id\":9,\"q\":\"What does this code output?\",\"inf\":\"x = 10 + 6 / 2<br/>x = x + 1<br/>print(x)\",\"ans\":3,\"atext:\":\"\",\"cho\":[\"14\",\"9\",\"13\",\"8\",\"\"]},{\"id\":10,\"q\":\"What does this code output?\",\"inf\":\"x = input(^Enter a value:^)<br/>print(x / 2)\",\"ans\":2,\"atext:\":\"\",\"cho\":[\"The value entered divided by two.\",\"An error because the value was not converted to a number.\",\"\",\"The value the user entered.\",\"\"]},{\"id\":11,\"q\":\"What does this code output?\",\"inf\":\"print(^Have a ^great^ day!^)\",\"ans\":3,\"atext:\":\"\",\"cho\":[\"Have a great^ day!^\",\"Have a great^ day!^\",\"Nothing, the double quotes make for a syntax error.\",\"\",\"\"]},{\"id\":12,\"q\":\"What does this code output?\",\"inf\":\"print(^Save in c:\\new folder^)\",\"ans\":4,\"atext:\":\"Esacpe Code Issue \",\"cho\":[\"Save in c:ew folder\",\"Save in c:\",\"ew folder\",\"The escape code makes an syntax error.\",\"Save in c:\\new folder\"]}]\n";
+//var quiztext=quiztext.replace("^", "\"");
+//nodes= JSON.parse(quiztext);
+initJSONP(url); // call back process
+}
+function _loadQuestions(){
+	var quiztext='[{"id":1, "question": "Who created Python", "help": "Born in 1945", "ans":4, "anstext": "Created for fun", "choices": ["Lung","Bung", "Rang", "Sanga", "Lanka"]},{"id":2, "question": "Pyhon is ", "help": "Modern", "ans":3, "anstext": "Object insife object", "choices": ["BBB","GGG", "HH", "LL","K2", "Sama"]},{"id":3, "question": "Pyton variable", "help": "Simple", "ans":2, "anstext": "No decr", "choices": ["xxx","ggg", "xx", "xx"]}]';
+	return nodes;
+}
+function printQuestions(nodes){
+for (var i=0;i< nodes.length;i++) {
+	console.log(nodes[i].id);
+	console.log(nodes[i].question);
+	console.log(nodes[i].help);
+	for (var j=0;j< nodes[i].choices.length;j++) {
+		console.log(nodes[i].choices[j]);
+	}
+	return undefined;
+}
+}
+
+function dispQuestion(i){
+   
+    var qno=i*1+1;
+	
+    var nq=nodes.length;
+	var id = nodes[i].id;
+	var question=nodes[i].q;
+	var help=nodes[i].inf;
+	var ans=nodes[i].ans;
+	var anstext=nodes[i].atext;
+     
+	//console.log(i, nodes[i]);
+	
+	var p=-1, m=0, n=0;
+	if  (i > 0 ) {
+	   p=i-1;
+	   //console.log(nodes[i-1].question);
+	}
+	if  (i < nq-1 ){
+		n=i*1+1;
+		//console.log(nodes[i+1].question);
+	}
+	
+	var navStr=quizNavigation(p,m,n);
+	var question1=question.replace(/zZ/g, '"');
+	var s='<div id="quizbox">';
+	s+='<div id="q'+ id +'" class="mcq">';
+	qnox=qno+1;
+	s+='<div class="qtext"><span class="qno">'+ qnox +'. </span><span class="qtext">'+ question1 +'</span></div>';
+	if (help !=""){
+		helpx=help.replace(/zZ/g, '"');
+		s+='<div class="qinfo">'+ helpx +'</div>';
+	}
+	s+='<div class="quizul"><ul class="qchoices">';
+	for (var j=0;j< nodes[i].cho.length;j++) {
+	    var opno=j+1;
+		var oc='chekAnswer('+ id + ','+ j + ')';
+		var cho1=nodes[i].cho[j].replace(/zZ/g, '"');
+		s+='<li id="q'+ id +'_'+ j + '" onclick="'+ oc + '"><span class="optno">'+ opno + '.</span> <span>'+ cho1 + '</li>';
+	}
+	s+='</ul></div>';
+	s+='<div id="anstext"></div>';
+	s+='<div id="qnavibar">'+ navStr + '</div></div>';
+    updateDiv("ux","quizbox",s);
+	
+	return undefined;
+}
+
+function chekAnswer(qn,uans){
+    debugger;
+	var ename='q'+ qn + '_' + uans ;
+	var el=document.getElementById(ename);
+	
+	ans=nodes[qn].ans;
+	uans=uans+1;
+	console.log(ans,uans);
+	if (uans==ans){
+	    var anstext=nodes[qn-1].atext;
+		if (anstext !=undefined){
+			document.getElementById("anstext").innerHTML=anstext;
+		}
+		el.style.color='#00ff99';
+		console.log("OK");
+	}
+	else{
+		el.style.opacity=0.5;
+		el.style.color='#000';
+		console.log("Not OK");
+		
+	}
+}
+
+//var nodes=loadQuestions();
+var nodes={};
+var url ="python_q.js";
+loadQdata(url);
+setTimeout("dispQuestion(0)",500);
+
+
+//printQuestions(nodes);
+//var question = new quest(nodes[id], "Perera");
+
+</script>
+
+<div id="quizdata"></div>
+
+</body>
+</html>

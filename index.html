@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ගනිදු</title>
+  
+<style>
+@font-face {
+    font-family: kaputaunicode;
+	src: url('kaputaunicode.ttf') format('truetype');
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family:Roboto,kaputaunicode,sans-serief;
+  color:#999;
+}
+
+body {
+  background: #000;
+  perspective: 340px;
+}
+
+.stars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  z-index:0;
+
+  box-shadow: -370px 78px #f7f7f7, 712px 217px #e0e0e0, 48px -465px #c9c9c9, -43px 326px #e6e6e6, 737px -110px #f0f0f0, -259px -303px #f2f2f2, 597px -175px #dedede, -192px -226px #d6d6d6, -254px -17px #e8e8e8, 313px 473px #f7f7f7, 674px -198px #dedede, 274px 135px #c4c4c4, -425px -390px #e6e6e6, 203px 93px whitesmoke, 64px -78px #c9c9c9, -210px -60px #dbdbdb, 412px -46px #c4c4c4, 209px -69px #ebebeb, -271px -144px #c4c4c4, -168px 290px #dedede, -601px -41px #c2c2c2, -594px 82px #ebebeb, -501px -127px #dedede, -584px 141px #cfcfcf, 689px 448px #dedede, -499px 75px #dbdbdb, 123px 169px #c7c7c7, 382px -338px #ededed, -490px 225px #d9d9d9, 5px 175px #c4c4c4, -310px 337px #d4d4d4, 347px 363px #ebebeb, 653px -292px #d9d9d9, 707px -160px #cccccc, -102px -326px #ebebeb, 434px 43px white, 284px 284px #e0e0e0, -426px -157px #c4c4c4, 322px -328px #c4c4c4, 499px -379px #fcfcfc, -17px -150px #c4c4c4, -632px -351px whitesmoke, -171px 405px #fcfcfc, -22px 317px #ededed, 54px 171px #f7f7f7, -333px -73px #f0f0f0, -278px -313px #c9c9c9, 624px -281px #d6d6d6, -6px -37px whitesmoke, 288px -374px #c4c4c4, -658px 384px whitesmoke, 338px -315px #e0e0e0, -140px -14px #cfcfcf, -347px -447px #c7c7c7, 483px 422px #cfcfcf, -504px 30px white, -37px -466px #cccccc, 273px -74px whitesmoke, 417px 244px #dedede, 214px 333px #d1d1d1, 664px 178px #ebebeb, -102px -203px #ededed, -153px -340px #f7f7f7, 312px 238px #fafafa, -81px 208px #d1d1d1, 332px 154px #c2c2c2, 413px -296px #c4c4c4, -420px -197px white, 267px -146px #d9d9d9, 124px 465px #c7c7c7, -685px 436px #f2f2f2, -642px 24px #e3e3e3, -165px 39px #d4d4d4, 689px 303px #dedede, 104px -81px #dbdbdb, -614px -354px #f7f7f7, 352px 417px #cfcfcf, 481px -5px #cfcfcf, -259px -355px white, 3px -190px #c7c7c7, -146px -467px #c4c4c4, 279px -346px #f7f7f7, -77px -397px #c4c4c4, 294px -225px #c4c4c4, 349px -398px #dbdbdb, -90px 7px #ededed, -627px -21px whitesmoke, -315px 324px #f2f2f2, 50px -461px #f0f0f0, -586px -377px whitesmoke, 484px -337px #c9c9c9, -541px 7px #d9d9d9, 153px 319px #ebebeb, 288px -62px #fcfcfc, 377px 253px #f7f7f7, -420px 362px #cfcfcf, -217px 20px #e8e8e8, -88px -80px #fafafa, -233px -90px #dedede, 618px 50px #f2f2f2, -276px 171px #d9d9d9, -323px -291px #f7f7f7, 278px 416px #cfcfcf, -694px 108px #d6d6d6, 155px 287px #fafafa, 338px 408px #cfcfcf, -364px -240px #e6e6e6, -667px 253px #f2f2f2, -512px 60px #ebebeb, -642px 402px #cfcfcf, 518px 244px #d6d6d6, -340px 459px #c7c7c7, -306px -402px #ededed, -486px -232px #fafafa, -172px -440px #f2f2f2, -592px -451px white, 212px 480px #e6e6e6, -6px 409px #e6e6e6, -530px 441px #c4c4c4, -661px 13px white, 196px -206px #ededed, -460px 475px #e6e6e6, -485px 276px #e3e3e3, 356px 223px #fafafa, 154px -479px #d4d4d4, 308px -157px #c4c4c4, -290px 15px #d4d4d4, 477px 19px #c9c9c9, 157px 17px #c9c9c9, -75px -420px #d9d9d9, 681px 457px #c7c7c7, 84px 360px whitesmoke, -79px 358px #ebebeb, 10px -395px #e0e0e0, -496px 65px #d4d4d4, 67px -218px #e3e3e3, -744px 13px #d1d1d1, -53px -60px #e3e3e3, -188px -368px #c2c2c2, -279px -290px #d4d4d4, -251px 432px #c7c7c7, -387px 225px #d9d9d9, 638px -185px #fafafa, 707px -173px #c9c9c9, 328px -171px #c2c2c2, 286px 131px #c7c7c7, -49px -389px #dedede, -386px 284px #cccccc, 291px -112px #dbdbdb, 242px -136px #d1d1d1, -686px 176px #dbdbdb, -207px -318px #c4c4c4, 699px 151px #c9c9c9, -243px -462px #e0e0e0, 256px -267px #f7f7f7, -201px 388px #d6d6d6, 318px -115px whitesmoke, 34px 406px #ededed, 131px 7px #c7c7c7, -374px 283px #c7c7c7, 83px -208px #f7f7f7, -667px 7px #e0e0e0, -406px 173px #e3e3e3, 150px -445px #ebebeb, -290px 468px #e3e3e3, -256px -429px #dedede, -316px -380px #cfcfcf, -275px -375px #cfcfcf, -727px 449px #f2f2f2, 526px 429px #c7c7c7, -225px 291px #fafafa, 739px 334px #d9d9d9, -535px -277px #e6e6e6, -633px -174px #dbdbdb, 303px -155px #e8e8e8, 142px -358px #fcfcfc, -496px -183px #e6e6e6, 415px 360px #e8e8e8, -477px -370px #cccccc, 562px 248px #fafafa, -703px -325px #f7f7f7, -387px -89px #ebebeb, -683px 308px #d6d6d6, 479px 29px #ebebeb, 143px -47px #ebebeb, -350px 256px #ededed, -92px -367px #d4d4d4, -419px -142px #c7c7c7, 21px -465px #c7c7c7, -118px 130px #d6d6d6, 151px 348px #e8e8e8, 417px -289px #e0e0e0, -235px -93px #c4c4c4, -49px -103px #dedede, 305px -353px #e3e3e3, -362px 213px #fcfcfc, 158px 101px #dbdbdb, -262px 370px #ededed, -32px 313px #fafafa, 416px -434px #ebebeb, -248px 43px #e3e3e3, 104px 70px #e8e8e8, 598px 92px #c9c9c9, -258px 406px #e0e0e0, -162px -296px #f7f7f7, 139px 108px #c4c4c4, -441px 478px #ebebeb, 663px -275px #dbdbdb, -150px 54px #d4d4d4, -152px 122px #ebebeb, 474px -173px #e0e0e0, -460px 447px #d9d9d9, 669px 338px #c7c7c7, 144px -15px #fcfcfc, 379px 256px #d9d9d9, -709px 41px #c9c9c9, -425px -194px #e0e0e0, -239px -212px #ededed, -479px -56px #d6d6d6, 177px 291px #d1d1d1, -340px 267px #f7f7f7, -181px 340px #d6d6d6, 73px 448px #dbdbdb, 369px -341px #e8e8e8, 721px -80px #dedede, -525px -108px #c2c2c2, -208px -116px #cccccc, -526px -145px #f2f2f2, -311px -313px #cfcfcf, -123px -163px #c2c2c2, -438px -435px #dbdbdb, 598px -101px #ebebeb, -559px 284px #c2c2c2, 497px 418px #ededed, 723px -116px #c4c4c4, 598px -84px #d1d1d1, -668px -268px #cccccc, 77px -307px #e0e0e0, 151px 424px #dedede, 561px 155px #ebebeb, -612px 115px #d4d4d4, -344px -185px #d1d1d1, -234px -36px #c9c9c9, 10px 409px #dedede, 561px 321px #cfcfcf, -297px 356px #e0e0e0, 67px -202px #cfcfcf, 123px -15px #dbdbdb, -141px -437px #d6d6d6, -301px 214px #cccccc, 347px -463px #dedede, -746px -368px #ebebeb, -167px 368px #c2c2c2, 181px -26px #c4c4c4, -496px 197px #c7c7c7, -471px -86px white, 597px 361px #ebebeb, 616px -405px #d1d1d1, 93px -433px #d6d6d6, -172px 306px #c2c2c2, -186px -246px #d6d6d6, 180px -388px #fafafa, 422px -388px #dedede, 5px 107px #ebebeb, 647px 341px #fcfcfc, 516px -298px #e8e8e8, 342px -137px #d9d9d9, -608px -149px #f0f0f0, 138px 194px #e3e3e3, -716px 8px #c7c7c7, 300px -453px #fafafa, 300px 134px #d6d6d6, 748px -98px #fcfcfc, 10px 373px #f7f7f7, 209px 38px #e8e8e8, 352px -75px #e8e8e8, 563px 130px #e8e8e8, -288px -197px #c7c7c7, -313px 307px #c7c7c7, -97px -132px #e0e0e0, 615px -209px whitesmoke, 35px 392px #ebebeb, -592px -417px #f2f2f2, 634px 270px #cfcfcf, -678px -382px #f7f7f7, 381px -452px #d1d1d1, 631px 379px #d6d6d6, -442px -137px #cfcfcf, 96px 338px #f7f7f7, -677px -449px #d1d1d1, 306px -42px #cccccc, -663px 180px whitesmoke, 155px -215px whitesmoke, 113px -401px #dedede, -207px -351px whitesmoke, 698px 278px whitesmoke, 504px 131px #c2c2c2, 493px 418px #d6d6d6, 72px 349px #cccccc, 710px 162px #dedede, 343px 72px #ededed, 532px -415px #e3e3e3, 5px -170px #f2f2f2, 390px 310px #ebebeb, -733px 214px #c4c4c4, -120px -396px #cccccc, -564px 94px #f0f0f0, -385px -380px white, 248px 157px #e6e6e6, -642px 411px #dedede, 668px -117px #d4d4d4, -121px -56px #d4d4d4, 574px 300px #c9c9c9, -450px 349px #dbdbdb, -470px -408px #cccccc, -660px 25px #cccccc, 533px 397px #d4d4d4, 519px -192px #c4c4c4, 408px -131px #c4c4c4, -284px -113px #e0e0e0, 264px -268px #d9d9d9, -329px 294px #e3e3e3, 34px 274px #fcfcfc, -701px 425px #fafafa, -580px -367px #e8e8e8, -272px -325px #d9d9d9, 419px -178px #d6d6d6, 262px -313px #c4c4c4, -151px 275px #c9c9c9, 231px 124px #dbdbdb, -239px -215px #c9c9c9, 552px -31px #c7c7c7, -111px 341px #c2c2c2, -541px -212px whitesmoke, -59px 271px #e8e8e8, -13px 155px #cccccc, -658px -369px #d9d9d9, -25px -415px #dedede, -548px -329px white, 681px -462px #e6e6e6, 727px -307px #e0e0e0, -90px -228px #c7c7c7, -643px 97px #f0f0f0, 585px 397px #ebebeb, -6px 83px #dbdbdb, -660px 182px #e6e6e6, -506px 439px #d6d6d6, 480px 45px #ededed, -119px -229px #e3e3e3, 748px -299px #e3e3e3, 129px 84px #dedede;
+  animation: fly 3s linear infinite;
+  transform-style: preserve-3d;
+}
+.stars:before, .stars:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  box-shadow: inherit;
+}
+.stars:before {
+  transform: translateZ(300px);
+  opacity: .6;
+}
+.stars:after {
+  transform: translateZ(600px);
+  opacity: .4;
+}
+
+@keyframes fly {
+  from {
+    transform: translateZ(0px);
+    opacity: .6;
+  }
+  to {
+    transform: translateZ(-300px);
+    opacity: 1;
+  }
+}
+
+div.ganidu a:link {
+    color: #17a6e2;
+	font-size:1.5em;
+	font-weight:bold;
+}
+
+div.ganidu a:hover {
+    color: hotpink;
+}
+
+div.ganidu a:visited {
+    color: #ffca3a;
+}
+
+div.ganidu a:link {
+    color: #17a6e2;
+	font-size:1.5em;
+	font-family:Roboto, kaputaunicode,sans-serief;
+	font-weight:bold;
+}
+
+div.ganidu a:hover {
+    color: hotpink;
+}
+
+
+div.footer a:link {
+    color: #17a6e2;
+	font-size:1em;
+}
+
+div.footer a:visited {
+    color: #999;
+	
+}
+
+.xheader{
+ background-color: #599fce;
+}
+.xtitle{
+font-size:2.0em;
+color:yellow;
+}
+
+a {
+    margin:5px;
+	font-family:Arial,Roboto,kaputaunicode,sans-serief;
+}
+
+.linkbutn1 {
+    background-color: #f44336;
+    color: #FFFFFF;
+    padding: 2px 25px;
+    text-align: center;
+    text-decoration: none;
+	
+    font-size: 12px;
+    margin-left: 20px;
+	min-width:200px;
+    opacity: 0.9;
+}	
+
+.ganidu{
+text-align:center;
+z-index:10;
+margin-top:60px;
+}
+
+    </style>
+
+  </head>
+
+<body>
+
+<div class="ganidu">
+  <img src="ganidu.png"><br/>
+  <a class="linkbutn" href="start/index.html">ආරම්භක කේතනය</a><br/>
+  <a class="linkbutn" href="en/index.html">අන්තර්මැදි කේතනය</a><br/>
+  <a class="linkbutn" href="turtle/index.html">කේත රූපනය </a><br/>
+  <a class="linkbutn" href="code/index.html">ඉහල කේතනය</a><br/>
+  <a class="linkbutn" href="python/index.html">Learn Python</a><br/>
+  <a class="linkbutn" href="logicmaster/index.html">Logic Master</a><br/>
+  </div>
+  <br/>
+  <br/>
+<div class="stars">
+
+</div>
+<div class="footer">
+<center>Localized  by : <a href="https://www.facebook.com/niranjan.meegammana"> Niranjan Meegammana</a><br/>
+<a href="http://www.shilpasayura.org">Shilpa Sayura Foundation</a></center>
+</div>
+</body>
+</html>

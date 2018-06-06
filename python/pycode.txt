@@ -1,0 +1,1368 @@
+
+<!--------------------------------->
+
+
+
+
+
+importing programmer-defined functions
+
+#  myFunctions.py should be in the same folder as this file
+
+import myFunctions
+
+print ("1 to 5 cubed")
+for x in range(1,6):
+    print (myFunctions.cube(x),)
+print()
+print()
+
+print ("1 to 5 doubcube"    )
+for x in range(1,6):    
+    print (myFunctions.doubleIt(x),)
+
+function with no return statement
+
+def multi(x):
+    for i in range(1,10):
+        print ("%d x %d = %d" % (i, x, i * x))
+
+print ("1 x n")
+multi(1)
+print ("2  x n ")
+multi(2)
+
+Python is 0-index based,  list indexes start at 0, not 1
+if there are n integers
+first element of a list is xlist[0]. 
+lastelement is xlist[n]
+
+my_list = ['one', 'two', 'three', 'four', 'five']
+my_list_len = len(my_list)
+for i in range(0, my_list_len):
+        print(my_list[i])
+
+#output
+one
+two
+three
+four
+
+in python 2.x xrange is used
+
+
+---Advanced
+ Python range() function doesn't support the float type.
+
+
+def frange(start, stop, step):
+ 	i = sart
+	while i < stop:
+	yield i
+	i += step
+
+ for i in frange(0.5, 1.0, 0.1):
+            print(i)
+</code>
+</pre>
+</div>
+
+
+ Demo of DeMorgan's Laws:
+#  1.  a Not And is equivalent to an Or with two negated inputs
+#  2.  a Not Or is equivalent to an And with two negated inputs
+
+#  Test data: 0 0, 0 1, 1 0, 1 1
+#  For any value of x and y, (not(x < 15 and y >= 3)) == (x >= 15 or y < 3)
+
+x = int(input("Enter a value for x: "))
+y = int(input("Enter a value for y: "))
+print ((not(x < 15 and y >= 3)))
+print ((x >= 15 or y < 3))
+
+
+Python 3.x and 2.x
+
+#2.x
+print 'Python', python_version()
+
+#3.x use () in print
+print ('Python', python_version())
+
+#2.x Integer division 
+print '3 / 2 =', 3 / 2
+print '3 // 2 =', 3 // 2
+print '3 / 2.0 =', 3 / 2.0
+print '3 // 2.0 =', 3 // 2.0
+
+#3.x Integer division 
+
+print('3 / 2 =', 3 / 2)
+print('3 // 2 =', 3 // 2)
+print('3 / 2.0 =', 3 / 2.0)
+print('3 // 2.0 =', 3 // 2.0)
+
+#3.x Unicode
+print('python strings are now utf-8 \u03BCnico\u0394é!')
+
+  #2.x xrange
+def test_xrange(n):
+    for i in xrange(n):
+
+
+	
+#exceptions
+
+Python 3.x
+
+print('Python', python_version())
+try:
+    let_us_cause_a_NameError
+except NameError as err:
+    print(err, '--&gt; our error message')
+        pass
+
+#2.x Returning lists
+print 'Python', python_version()
+ 
+print range(3)
+print type(range(3))
+
+#3.x Returning iterable objects 
+
+print('Python', python_version())
+ 
+print(range(3))
+print(type(range(3)))
+print(list(range(3)))
+</pre>
+</div>
+
+
+
+print ("This is the start of the program")
+
+<div id ="code_variables1" class="codewrap">
+<pre>
+<code data-language="javascript">
+var development=0;
+var origin,destination,travelMode;
+var appdata="_user_appdata";
+
+//peaks data load
+var Geoposition = function(latitude, longitude) {
+        this.latitude = latitude;
+        this.longitude  = longitude;
+}
+</code>
+</pre>
+</div>
+
+<div id="variables">
+
+
+Whitespace
+Python use whitespace is used to structure code. 
+Use a tab or 4 spaces for every indenting of code
+def eggcount():
+	eggs = 12
+	return eggs
+        
+print eggcount()
+
+
+#single line comment
+
+....
+multi 
+line 
+comment
+...
+
+
+Write a single-line comment on line 1.
+starts with #
+Set the variable marrid equal to False
+Set another variable grade 1.2
+Set another variable gradelast 1.1
+Set another variable value grade - grade1.
+Set another variable value equal to value squared.
+
+
+#sfef
+monty=True
+python2=1.234
+python3=python2**2
+
+
+#do following integer calculations
+print (2 + 4)
+print (6 - 4)
+print (6 * 3)
+print (6 / 3)
+print (6 % 3)
+print (6 // 3) # floor division: always truncates fractional remainders
+print (-5)
+print (3**2)   # three to the power of 2
+
+#do floating point calculations
+print (2.0 + 4.0)
+print (6.0 - 4.0)
+print (6.0 * 3.0)
+print (6.0 / 3.0)
+print (6.0 % 3.0)
+print (6.0 // 3.0) # floor division: always truncates fractional remainders
+print (-5.0)
+print (3.0**2.0)   # three to the power of 2
+
+#what is the output of this program
+a=1
+b=2
+c=a/b
+d=c+1
+e=d*a
+f=b-a
+g=2**1
+h=a%b
+i=a+b+c+d+e+f+g+h
+print(i)
+
+#Calculate Meal Bill
+Cost of Hotel: 44.50
+Gov. tax: 6.75%
+Service Charge: 15%
+apply the Service Charge to the cost of the meal including tax to get total cost.
+
+meal=44.50
+tax=6.75/100
+tip=15/100
+mealwtax=meal + meal * tax
+totalwtip=mealwtax+ mealwtax * tip
+print(totalwtip)
+
+# mixing data types in expressions
+# mixed type expressions are "converted up"
+# converted up means to take the data type with the greater storage
+print (2 + 4.0) //float
+print (6 - 4.0)
+print (6 * 3.0)
+print (6 / 3.0)
+print (6 % 3.0)
+print (6 // 3.0) # floor division: always truncates fractional remainders
+print (-5.0)
+print (3**2.0)   # three to the power of 2
+
+
+</pre>
+</div>
+<div id="math_functions">
+
+
+<div id="lists">
+<pre><code>
+
+# Python lists
+# Pythons lists are two types
+
+#array is like a series of bukects that can hold data
+
+result = [0,0,0,0,0,0,0,0] # create result array all elements are set to 0
+print (result)
+
+result[0]  =  75 # set element 0 to 75
+print (result)
+result[1]  =  90
+print (result)
+result[6]  =  72
+
+for index in range(7):
+   x='element : ' + index + result[index] 
+   print x
+
+#appending to an empty list
+
+
+list1 = [] # create empty list
+print (list1)
+list1.append(67) # 67 added 
+print (list1[0])
+list1.append("Niranjan") # String added
+print (list1)
+print (list1[0])
+print (list1[1])
+#print (list1[2]) # generate an out-of-range error
+
+
+#   list of lists
+#  A list element can be added to another list
+
+list1 = [1,2,3]
+print (list1)
+
+list2 = [4,5,6]
+print (list2)
+
+list3=[list1,list2]
+
+print (list3)
+print (list3[0])
+print (list3[1])
+
+#get last item in a list (last one is -1)
+print (list1[-1])
+print (list1[-2])
+
+#deleting items from a list
+del list1[0]
+del list1[-1]
+print (list1)
+
+#repeating lists
+#  Programmer: Anne Dawson
+#  Course:     CSCI120A, CSCI165
+#  Date:       Thursday 4th November 2004, 6:37 PT
+
+list1 = [1,2,3]
+print (list1)
+print (list1 * 3)
+print (list1)
+list1 = list1 * 2
+print (list1)
+
+
+
+#concatenating lists
+
+list1 = [1,2,3]
+print (list1)
+list2 = [4,5,6]
+print (list2)
+list1 = list1 + list2
+print (list1)
+list1 = list1 + list1
+print (list1)
+
+#list indexing
+
+list1 = [2,4,6,8,10,12,14,16,18,20] 
+print (list1[0:1])
+print (list1[5:7]
+
+#finding the length of a list 
+print ("This list is " + len(list1 + "long")
+
+
+#list iteration
+
+list2 = [1,2,3,"appSMART",4,5] 
+for i in list2:
+    print (i, end=" ")
+
+#string list / array iteration
+fruits = ['banana', 'apple',  'mango']
+for index in range(len(fruits)): # iterate
+   print 'Current fruit :', fruits[index]
+
+print "Good bye!"
+
+# find a value is in list or not
+
+list2 = [1,2,3,"Shilpa",4,5] 
+
+print (1 in list2)
+print ("Shilpa" in list2)
+print ("Sayura" in list2)
+
+#list methods
+# list have buit in methods
+
+list2 = ["A","B","C"]
+print (list2)
+list2.extend(["X","Y"]) # extends the list
+print (list2)
+
+list2.pop() # removes last item from the list
+print (list2)
+list2.pop()
+print (list2)
+
+list2.reverse() # reverses the order of the items
+print (list2)
+
+list2.append("S")
+print (list2)
+
+list2.sort() # sorts the list into ascending order
+print (list2)
+
+list2.reverse() # reverses the order of the items in the list
+print (list2)
+
+# 2D list
+#  Lists can be 2 dimensional - think chess board
+
+tictactoe = [[1,2,3], [4,5,6], [7,8,9]]
+print (tictactoe[0]) #[1,2,3]
+print (tictactoe[1])
+print (tictactoe[2])
+
+print()
+
+row = 1
+column = 0
+print ("row " + str(row) + " column " + str(column) + " has value")
+print (tictactoe[row][column])
+
+row = 2
+column = 2
+print ("row " + str(row) + " column " + str(column) + " has value")
+print (tictactoe[row][column])
+
+print()
+print()
+tictactoe[2][2] = 0
+print ("After changing the value at row 2 and column 2 to 0: ")
+print()
+print (tictactoe[0])
+print (tictactoe[1])
+print (tictactoe[2])
+
+# sequential search of a list
+# list is an array of integers
+
+xlist = [10,11,3,4,55,12,23,14,16]
+n = len(xlist) # length of the list
+
+for i in range(n):
+    print (mylist[i], end=" ")
+   s = int(input("\nNumber to search: "))
+   found = 0
+for i in range(n):
+    if mylist[i] == s:
+        found = 1
+        index = i
+print() # prints empty line
+
+if found == 1:
+    print (str(search) + " found at index " + str(index))
+else:
+    print (str(search) + " not found")
+
+	
+</code></pre>
+</div>
+
+<div id="sets">
+<pre>
+<code>
+Sets
+Sets are lists with no duplicate entries
+Sets can calculate differences and "intersections" between sets
+
+a = set(["Jake", "John", "Eric"])
+b = set(["John", "Jill"])
+
+print(a.intersection(b))
+print(b.intersection(a))
+
+# "symmetric_difference" method
+# intersection finds members in both lists
+
+print(a.symmetric_difference(b))
+print(b.symmetric_difference(a))
+
+
+#"difference" method: 
+# which members only in set not the other
+print(a.difference(b))
+print(b.difference(a))
+
+# "union" method: list of all members
+print(a.union(b))
+print(b.union(a))
+</code></pre>
+</div>
+
+<div id="json">
+<pre>
+<code>
+import json
+
+# fix this function, so it adds the given name
+# and salary pair to salaries_json, and return it
+def add_employee(salaries_json, name, salary):
+    salaries = json.loads(salaries_json)
+    salaries[name] = salary
+
+    return json.dumps(salaries)
+
+# test code
+salaries = '{"Alfred" : 300, "Jane" : 400 }'
+new_salaries = add_employee(salaries, "Me", 800)
+decoded_salaries = json.loads(new_salaries)
+print decoded_salaries["Alfred"]
+print decoded_salaries["Jane"]
+print decoded_salaries["Me"]
+</code>
+</pre>
+</div>
+<div id="string_operations">
+<pre>
+<code>
+#strings
+
+print ('Python is cool')
+print ("1796633")
+# print a string over several lines
+# contain it within triple quotes marks:
+
+print ('''Anne was here 
+     on Saturday 
+     30th October 2004''')
+
+# using an apostrophe and double quote within a string
+
+print ("This is fun")
+print ("This is baby's fun" )
+
+# You can also print string enclosed in single quotes:
+print (' double quote ", in "single qupte"')
+
+#multiplying strings
+
+print ("3" * 4)
+print ("hello" * 4)
+
+#string concatenation
+a="Python " + "can  " + " do lot"
+print (a)
+
+# string indexing
+
+s1 = "Anne Dawson" 
+print (s1[0],s1[5])
+
+##string slicing
+
+s1= "Niranjan Meegammana" 
+print (s1[0:2])
+print (s1[6:9])
+
+# length of a string
+
+s1 = "Niranjan" 
+s2 = "Meegammana"
+s3 = ""
+print (len(s1),) 
+print (len(s2),) 
+print (len(s3))
+
+# %s string formatting code
+# the %s is replace by given string
+print ('Python is a %s language.' % 'great')
+n=1
+print ('Python is a no %d' % n)
+v=3.2
+print ('Python %f x' % v)
+
+#finding a string within a string
+
+
+s1 = 'Meegammana'
+x = s1.find('ee')
+print (x)
+x = s1.find('Niranjan')
+print (x)
+
+#replace a part of a string
+
+s1 = 'Niranjan Meegammana'
+s1.replace('Niranjan','N.')
+print (s1)
+# strings are immutable (cannot change)
+
+s2 = s1.replace('a','i')
+print (s2)
+
+
+#escape sequences within a string 
+#use \n to break lines
+s = 'one\ntwo\tthree'
+print (s)
+
+# iteration and membership with strings
+
+s = 'Niranjan was here'
+for c in s:
+	  print (c, end=" ")
+print ('w' in s, end=" ")
+print (' ' in s, end=" ")
+print ('x' in s)
+
+# printing Unicode characters
+# \u2588 is a Full Block which can be used to build up a black square 
+
+str1 = "Hello\u2588out there" # solid black block within text
+print (str1)
+str1 = '\u2588\u2588' #two full block characters
+print (str1)
+print()
+
+print ('two lines of two full blocks, two spaces, two full blocks:')
+str1 = '\u2588\u2588\u2588\u2588\u0020\u0020\u0020\u0020\u2588\u2588\u2588\u2588'
+print ('two lines of two full blocks, the number 17 and two full blocks:')
+str1 = '\u2588\u2588\u2588\u2588\u0020\u0020' + '17' + '\u2588\u2588\u2588\u2588'
+print (str1)
+
+#Hakerank solution
+#convert a given number, n, from decimal to binary
+
+import sys
+n = int(input())
+#print(n)
+for i in range(n):
+      n = int(input())
+      b=bin(n)
+      print(b)
+     str(b).replace("0b", "")
+</code>
+</pre>
+</div>
+<div id="dictionaries">
+<pre>
+<code>
+
+
+
+
+
+
+</code>
+</pre>
+</div>
+
+<div id="subclass">
+<pre>
+<code>
+
+class schoolMember():
+
+no_members = 0
+
+def __init__(self,name,age):
+self.name = name
+self.age = age
+schoolMember.no_members += 1
+
+def details(self):
+print "\tName: %s, age: %s"%(self.name,self.age)
+
+def number(self):
+print "Number of members: ",schoolMember.no_members
+
+class student(schoolMember):
+def __init__(self,name,age,average):
+schoolMember.__init__(self,name,age)
+print "Student:"
+self.averageGrade = average
+schoolMember.details(self)
+print "\tAverage Grade: ", self.averageGrade
+schoolMember.number(self)
+
+class teacher(schoolMember):
+def __init__(self,name,age,salary):
+schoolMember.__init__(self,name,age)
+print "Teacher:"
+schoolMember.details(self)
+self.salary = salary
+print "\tSalary: %i"%self.salary
+schoolMember.number(self)
+
+a = student("Matt",26,78)
+b = teacher("El",25,30000)
+c = student("Dave",31,42)
+</code>
+</pre>
+</div>
+<div id="encrypting">
+<pre>
+<code>
+#encription
+plain_text = "This is a test. ABC abc"
+ 
+encrypted_text = ""
+for c in plain_text:
+    x = ord(c) #
+    x = x + 1
+    c2 = chr(x)
+    encrypted_text = encrypted_text + c2
+print(encrypted_text)
+
+
+# decryption
+
+ 
+
+ 
+encrypted_text = "Uijt!jt!b!uftu/!BCD!bcd"
+ 
+plain_text = ""
+for c in encrypted_text:
+    x = ord(c)
+    x = x - 1
+    c2 = chr(x)
+    plain_text = plain_text + c2
+print(plain_text)
+﻿
+</code>
+</pre>
+</div>
+
+<div id="advanced">
+<pre>
+<code>
+
+def InsertionSort(A):
+    for j in range(1, len(A)):
+        key = A[j]
+        i = j - 1
+        while (i >= 0) and (A[i] > key):
+            A[i+1] = A[i]
+            i = i - 1
+        A[i+1] = key
+
+input = [8, 3, 9, 15, 29, 7, 10]
+InsertionSort(input)
+print(input)
+
+# recursive factorial
+def fact(n):
+    if (n <= 1):
+        return 1
+    else:
+        return n * fact(n - 1)
+
+print(fact(6))
+
+
+# Object-oriented programming intro
+# Adapted from MIT 6.01 course notes (Section 3.5)
+# http://mit.edu/6.01/mercurial/spring10/www/handouts/readings.pdf
+
+class Staff601:
+    course = '6.01'
+    building = 34
+    room = 501
+
+    def salutation(self):
+        return self.role + ' ' + self.name
+
+pat = Staff601()
+print(pat.course)
+
+pat.name = 'Pat'
+pat.age = 60
+pat.role = 'Professor'
+
+print(pat.building)
+pat.building = 32
+print(pat.building)
+
+print(pat.salutation())
+print(Staff601.salutation(pat))
+
+
+
+# Inheritance - object-oriented programming intro
+# Adapted from MIT 6.01 course notes (Section 3.5)
+# http://mit.edu/6.01/mercurial/spring10/www/handouts/readings.pdf
+
+class Staff601:
+    course = '6.01'
+    building = 34
+    room = 501
+
+    def giveRaise(self, percentage):
+        self.salary = self.salary + self.salary * percentage
+
+class Prof601(Staff601):
+    salary = 100000
+
+    def __init__(self, name, age):
+        self.name = name
+        self.giveRaise((age - 18) * 0.03)
+
+    def salutation(self):
+        return self.role + ' ' + self.name
+
+pat = Prof601('Pat', 60)
+
+
+#link lists
+
+x = None
+for i in range(6, 0, -1):
+  x = [i, x]
+
+# use tuples
+y = None
+for i in range(6, 0, -1):
+  y = (i, y)
+
+x[1][0]=y[1][1] # courtesy of John DeNero!
+
+
+
+# use dicts
+x = None
+for i in range(6, 0, -1):
+  x = {'data': i, 'next': x}
+
+# use objects
+class Node:
+  def __init__(self, data, next):
+    self.data = data
+    self.next = next
+
+y = None
+for i in range(6, 0, -1):
+  y = Node(i, y)
+  
+  
+#closure
+  
+def foo(y):
+    def bar(x):
+        return x + y
+    return bar
+
+b = foo(1)
+b(2)
+
+#lamda
+def foo(x):
+  bar(lambda y: x + y)
+
+def bar(a):
+  print(a(20))
+
+foo(10)
+
+
+# Functional programming with map
+
+
+def map(func, lst):
+    if lst == []:
+        return []
+    else:
+        return [func(lst[0])] + map(func, lst[1:])
+    
+def halveElements(lst):
+    return map(lambda x: x / 2.0, lst)
+  
+input = [2, 4, 6, 8, 10]
+output = halveElements(input)
+
+
+# Use generator to generate a stream of primes
+def gen_primes():
+    n = 2
+    while True:
+        for x in range(2, n):
+            if n % x == 0:
+                break
+        else:
+            yield n
+        n += 1
+
+for p in gen_primes():
+    print(p)
+	
+
+
+	#encription
+plain_text = "This is a test. ABC abc"
+ 
+encrypted_text = ""
+for c in plain_text:
+    x = ord(c) #
+    x = x + 1
+    c2 = chr(x)
+    encrypted_text = encrypted_text + c2
+print(encrypted_text)
+
+
+# decryption
+
+ 
+
+ 
+encrypted_text = "Uijt!jt!b!uftu/!BCD!bcd"
+ 
+plain_text = ""
+for c in encrypted_text:
+    x = ord(c)
+    x = x - 1
+    c2 = chr(x)
+    plain_text = plain_text + c2
+print(plain_text)
+﻿
+
+
+# move a stack of n disks from stack a to stack b,
+# using tmp as a temporary stack
+def TowerOfHanoi(n, a, b, tmp):
+    if n == 1:
+        b.append(a.pop())
+    else:
+        TowerOfHanoi(n-1, a, tmp, b)
+        b.append(a.pop())
+        TowerOfHanoi(n-1, tmp, b, a)
+        
+stack1 = [4,3,2,1]
+stack2 = []
+stack3 = []
+      
+# transfer stack1 to stack3 using Tower of Hanoi rules
+TowerOfHanoi(len(stack1), stack1, stack3, stack2)
+	
+
+
+
+</code>
+</pre>
+</div>
+
+<div id="class">
+<pre>
+Class
+Classes  group information and functions to process information  into a single unit
+
+class Person # An empty class definition
+    pass
+
+p = Person()
+p.name = 'Niranjan'
+p.address = '1 High Street'
+p.phone = '555-1234'
+
+the methods and member variables are always public (anyone can access)
+This is not very good for encapsulation
+the class methods to access or change  member variables
+CONVENTION
+class method or variable that starts with an underscore are private. 
+Class methods and variable names start with two underscores are private to that class
+
+Class as Object
+
+class Person:
+   'Common base class for all employees'
+   pCount = 0
+
+   def  init(self, name, age):
+      self.name = name
+      self.age = age
+      Person.pCount += 1
+   
+   def PersonCount(self):
+     print "Total  %d" % Person.pCount
+
+   def displayPerson(self):
+      print "Name : ", self.name,  ", Age: ", self.age
+
+Creating Instance Objects
+call the class using class name and pass in arguments to  init method 
+
+#create first object of Person class
+p1 = Person("Pasindu", 18)
+
+#create second object of Person class
+p2 = Employee("Prabashana", 16)
+
+p1.displayPerson()
+p2.displayPerson()
+
+print ( "Total %d" % PersonCount())
+
+</code>
+</pre>
+</div>
+
+<div id ="queue">
+<pre>
+<code>
+Lambda Forms
+A lambda statement creates new function objects and then return them at runtime.
+
+def make_repeater(n):
+	return lambda s: s * n
+
+twice = make_repeater(2)
+
+print twice('word')
+print twice(5)
+			
+#output
+wordword
+10
+
+function make_repeater creates new function objects at runtime and return it.
+The lambda takes a parameter followed by a single expression becomes the body of the function 
+and the value of this expression is returned by the new function.
+ Print statements cannot be used inside a lambda form, only expressions.
+ </code>
+</pre>
+</div>
+
+<div id ="queue">
+<pre>
+<code>
+"""
+First-In-First-Out (FIFO) data structure.
+In a FIFO the first element added will be the first one to be removed.
+The Queue class implements a basic FIFO container.
+ Elements are added to one “end” using put(), and removed from the other end using get().
+"""
+import queue
+
+q = queue.Queue()
+
+for i in range(5):
+    q.put(i)
+
+while not q.empty():
+    print(q.get(), end=' ')
+print()
+
+
+"""
+LIFO Queue
+Last in First Out Queue used in  stack data structure
+
+import queue
+
+q = queue.LifoQueue()
+
+for i in range(5):
+    q.put(i)
+
+while not q.empty():
+    print(q.get(), end=' ')
+print()
+
+
+Deque
+deque : A double-ended queue supports adding and removing elements from either end. 
+Commonly used stacks and queues
+"""
+
+import collections
+
+d = collections.deque('abcdefg')
+print ('Deque:', d)
+print ('Length:', len(d))
+print ('Left end:', d[0])
+print ( 'Right end:', d[-1])
+
+d.remove('c')
+print  (d)
+d.add('c')
+
+
+
+#Populating
+#A deque can be populated from any end “left” or “right” 
+#using append and appendleft
+
+import collections
+
+# Add to the right
+
+d = collections.deque()
+d.extend('abcdefg')
+print (d)
+d.append('h')
+print (d)
+
+# Add to the left
+d = collections.deque()
+d.extendleft('abcdefg')
+print ( d)
+d.appendleft('h')
+print (d)
+
+
+#Consuming
+#can be consumed from both or either end, depending on the algorithm
+#pop() remove an item from the “right” 
+# popleft() to take an item from the “left” end.
+
+import collections
+
+print 'From the right:'
+d = collections.deque('abcdefg')
+while True:
+    try:
+        print (d.pop())
+    except IndexError:
+        break
+
+print '\nFrom the left:'
+d = collections.deque('abcdefg')
+while True:
+    try:
+        print d.popleft()
+    except IndexError:
+        break
+
+#Rotating
+#deque is to rotation in either direction
+
+import collections
+
+d = collections.deque(xrange(10)) # populate 10 numbers
+print (d)
+d.rotate(2)
+print (d)
+d.rotate(-2)
+print( d)
+
+#Output
+
+"""
+    Queue
+    -----
+    A Queue is a linear data structure, sequential collection. 
+    Elements added at end and removed from front.
+    
+"""
+from collections import deque 
+
+
+class Queue:
+    dqueue_list = deque([])
+
+    def __init__(self):
+        self.dqueue_list = deque([])
+
+    def add(self, value): #Add element as the last item 
+        self.dqueue_list.append(value)
+
+    def remove(self): # emove element from the front
+        return self.dqueue_list.popleft()
+
+    def is_empty(self): # f the Queue is empty
+        return not len(self.dqueue_list)
+
+    def size(self): #size of the Queue
+        return len(self.dqueue_list)
+
+</code>
+</pre>
+</div>
+
+<div id ="type_conversion">
+<pre>
+<code>
+Modules
+Modules are libraries in Python. 
+Python comes with many standard library modules.
+
+A module can be imported using the import statement.
+
+
+>>> import time
+>>> time.asctime()
+'Tue Jan 12 11:42:06 2016'
+
+import sys
+print sys.argv[1]
+
+running it
+python echo.py hello
+hello
+python echo.py hello world
+hello
+
+
+Object
+
+def make_account():
+    return {'balance': 0}
+
+def deposit(account, amount):
+    account['balance'] += amount
+    return account['balance']
+
+def withdraw(account, amount):
+    account['balance'] -= amount
+    return account['balance']
+
+a = make_account()
+>>> b = make_account()
+>>> deposit(a, 100)
+100
+>>> deposit(b, 50)
+50
+		
+<div id ="type_conversion">
+<pre>
+<code>
+Numeric String to int
+int() function to convert a string into an integer value. 
+
+print int("1") + 1 //prints 2.
+
+ lists
+T2 = [map(int, x) for x in T1]
+</code>
+</pre>
+</div>
+<div>
+<pre>
+<code>
+
+#convert a given number, n, from decimal to binary
+
+import sys
+n = int(input())
+#print(n)
+for i in range(n):
+      n = int(input())
+      b=bin(n)
+      print(b)
+     str(b).replace("0b", "")
+	 
+	 
+#Trigonometric functions. 
+
+# Import the math library
+
+from math import *
+ 
+# Calculate x using sine and cosine
+x = sin(0) + cos(0)
+print(x)
+
+
+
+
+"""
+Simple Sorting: sort from smallest to biggest. 
+look for the smallest element, put it at the beginning,
+then sort what’s left known as selectSort
+"""
+
+def selectionSort(L):
+if len(L) == 0:
+return []
+smallest = L[0]
+smallestIndex = 0
+
+for i in xrange(1, len(L)):
+	if L[i] < smallest:
+	smallest = L[i]
+	smallestIndex = i
+	# In Python, a,b = b,a swaps the contents of the variables a,b
+	L[0],L[smallestIndex] = L[smallestIndex],L[0]
+
+return [L[0]] + selectionSort(L[1:])
+
+
+x = [1, 2, 3]
+y = [4, 5, 6]
+z = y
+y = x
+x = z
+
+x = [1, 2, 3] # a different [1, 2, 3] list!
+y = x
+x.append(4)
+y.append(5)
+z = [1, 2, 3, 4, 5] # a different list!
+x.append(6)
+y.append(7)
+y = "hello"
+
+
+def foo(lst):
+    lst.append("hello")
+    bar(lst)
+
+def bar(myLst):
+    print(myLst)
+
+foo(x)
+foo(z)
+
+ InsertionSort gradually make prefixes of the list sorted. 
+First make sure L[0:1] is sorted, then L[0:2], etc., 
+searb all the way up to L[0:len(L)]. 
+
+def insertionSort(L):
+for i in xrange(1, len(L)):
+# We assume L[0:i] is already sorted, and now need to put L[i]
+# in its rightful place.
+j = i - 1
+value = L[i]
+while j>=0 and L[j]>value:
+	L[j+1] = L[j]
+	j -= 1
+	L[j+1] = value
+return L
+
+BubbleSort has several iterations. 
+In each iteration  start at the beginning of the list and move to the end, one item at a time, and for
+each item you encounter you swap it with its adjacent element on the right if the two elements are
+inverted. This is done repeatedly until there are no more swaps being performed.
+
+def bubbleSort(L):
+	swapped = True
+	while swapped:
+		swapped = False
+
+
+for i in xrange(len(L)-1):
+if L[i]>L[i+1]:
+L[i],L[i+1] = L[i+1],L[i]
+swapped = True
+return L
+
+
+The last sorting method we’ll cover today is mergeSort. This is a recursive procedure for sorting
+a list. We break the list in two equal-sized halves (or as equal-sized as possible if the list size is
+odd), recursively sort each half, then merge the two lists together.
+def mergeSort(L):
+if len(L)<=1:
+return L
+# recursively sort the first half of L and put the result in A, and
+# recursively sort the second half of L and put the result in B
+A = mergeSort(L[0:len(L)/2])
+B = mergeSort(L[len(L)/2:])
+# now merge A and B, and put the result in C
+C = []
+aindex = 0
+bindex = 0
+for i in xrange(len(L)):
+if aindex==len(A):
+C += B[bindex:]
+break
+elif bindex==len(B):
+C += A[aindex:]
+break
+else:
+if A[aindex] < B[bindex]:
+C += [A[aindex]]
+aindex += 1
+else:
+C += [B[bindex]]
+bindex += 1
+return C
+As we will see in the next lecture, mergeSort is usually the best choice of these four methods
+when it comes to algorithm speed
+</pre>
+
+
+
+
